@@ -11,11 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.0",
     "@storybook/addon-essentials": "^8.1.11",
-    "@storybook/addon-interactions": "^8.1.11",
-    "@storybook/addon-links": "^8.1.11",
-    "@storybook/addon-onboarding": "^8.1.11",
     "@storybook/blocks": "^8.1.11",
     "@storybook/nextjs": "^8.1.11",
     "@storybook/react": "^8.1.11",
