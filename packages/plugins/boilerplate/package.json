@@ -50,7 +50,6 @@
 	"dependencies": {
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"rollup": "^4.18.0",
 		"vite-plugin-generate-file": "^0.1.1"
 	}
 }

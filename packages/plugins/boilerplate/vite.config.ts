@@ -1,8 +1,7 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig, Plugin, Rollup } from "vite";
 import react from "@vitejs/plugin-react";
 import generateFile from "vite-plugin-generate-file";
 import path from "path";
-import { OutputAsset, OutputChunk } from "rollup";
 
 export function replaceScript(html: string, scriptFilename: string, scriptCode: string): string {
 	const reScript = new RegExp(`<script([^>]*?) src="[./]*${scriptFilename}"([^>]*)></script>`);
@@ -26,8 +25,8 @@ function injectBundledJsIntoHTML(): Plugin {
 		name: "bundle-inject",
 		enforce: "post",
 		generateBundle(_, bundle) {
-			const htmlFile = bundle["index.html"] as OutputAsset;
-			const jsFiles = bundle["index.js"] as OutputChunk;
+			const htmlFile = bundle["index.html"] as Rollup.OutputAsset;
+			const jsFiles = bundle["index.js"] as Rollup.OutputChunk;
 			htmlFile.source = replaceScript(htmlFile.source as string, "index.js", jsFiles.code);
 			delete bundle["index.js"];
 		},
