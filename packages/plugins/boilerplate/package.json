@@ -7,7 +7,7 @@
 		"build": "tsc -p tsconfig.json && vite build",
 		"lint": "eslint --ext .ts,.tsx --ignore-pattern node_modules .",
 		"lint:fix": "eslint --ext .ts,.tsx --ignore-pattern node_modules --fix .",
-		"watch": "npm run build -- --watch",
+		"watch": "tsc -p tsconfig.json && vite build --watch",
 		"dev": "vite"
 	},
 	"author": "",
