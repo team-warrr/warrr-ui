@@ -1,5 +1,6 @@
 import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import generateFile from "vite-plugin-generate-file";
 import path from "path";
 import { OutputAsset, OutputChunk } from "rollup";
 
@@ -34,7 +35,28 @@ function injectBundledJsIntoHTML(): Plugin {
 }
 
 export default defineConfig({
-	plugins: [react(), injectBundledJsIntoHTML()],
+	plugins: [
+		react(),
+		injectBundledJsIntoHTML(),
+		generateFile({
+			type: "json",
+			output: "manifest.json",
+			data: {
+				name: "warrr",
+				id: "1387759100113360584",
+				api: "1.0.0",
+				main: "code.js",
+				capabilities: [],
+				enableProposedApi: false,
+				documentAccess: "dynamic-page",
+				editorType: ["figma"],
+				ui: "index.html",
+				networkAccess: {
+					allowedDomains: ["none"],
+				},
+			},
+		}),
+	],
 	build: {
 		rollupOptions: {
 			input: [path.resolve("index.html"), path.resolve("src/plugin/code.ts")],
