@@ -2,7 +2,7 @@
   "name": "warrr",
   "version": "1.0.0",
   "description": "figma plugin react boilerplate",
-  "main": "code.js",
+  "main": "dist/code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint --ext .ts,.tsx --ignore-pattern node_modules .",
