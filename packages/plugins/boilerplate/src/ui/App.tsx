@@ -1,11 +1,5 @@
-import { useState } from "react";
+const App = () => {
+	return <div>Hello World</div>;
+};
 
-export default function App() {
-  const [counter, setCounter] = useState(0);
-  return (
-    <>
-      <div>{counter}</div>
-      <button onClick={() => setCounter((prev) => prev + 1)}>카운터</button>
-    </>
-  );
-}
+export default App;
