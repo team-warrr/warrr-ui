@@ -9,6 +9,5 @@
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react-jsx",
 		"skipLibCheck": true
-	},
-	"include": ["src/**/*", "vite.config.ts"]
+	}
 }
