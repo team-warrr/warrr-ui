@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import generateFile from "vite-plugin-generate-file";
 import path from "path";
 
-export function replaceScript(html: string, scriptFilename: string, scriptCode: string): string {
+const replaceScript = (html: string, scriptFilename: string, scriptCode: string) => {
 	const reScript = new RegExp(`<script([^>]*?) src="[./]*${scriptFilename}"([^>]*)></script>`);
 	const preloadMarker = /"?__VITE_PRELOAD__"?/g;
 	const newCode = scriptCode.replace(preloadMarker, "void 0");
@@ -11,16 +11,17 @@ export function replaceScript(html: string, scriptFilename: string, scriptCode: 
 		reScript,
 		(_, beforeSrc, afterSrc) => `<script${beforeSrc}${afterSrc}>${newCode}</script>`
 	);
-	return _removeViteModuleLoader(inlined);
-}
 
-const _removeViteModuleLoader = (html: string) =>
+	return removeViteModuleLoader(inlined);
+};
+
+const removeViteModuleLoader = (html: string) =>
 	html.replace(
 		/(<script type="module" crossorigin>\s*)\(function(?: polyfill)?\(\)\s*\{[\s\S]*?\}\)\(\);/,
 		'<script type="module">'
 	);
 
-function injectBundledJsIntoHTML(): Plugin {
+const injectBundledJsIntoHTML = (): Plugin => {
 	return {
 		name: "bundle-inject",
 		enforce: "post",
@@ -31,7 +32,7 @@ function injectBundledJsIntoHTML(): Plugin {
 			delete bundle["index.js"];
 		},
 	};
-}
+};
 
 export default defineConfig({
 	plugins: [
