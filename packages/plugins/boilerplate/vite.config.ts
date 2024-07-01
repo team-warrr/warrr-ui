@@ -2,6 +2,7 @@ import { defineConfig, Plugin, Rollup } from "vite";
 import react from "@vitejs/plugin-react";
 import generateFile from "vite-plugin-generate-file";
 import path from "path";
+import manifest from "./figma.manifest";
 
 const replaceScript = (html: string, scriptFilename: string, scriptCode: string) => {
 	const reScript = new RegExp(`<script([^>]*?) src="[./]*${scriptFilename}"([^>]*)></script>`);
@@ -41,20 +42,7 @@ export default defineConfig({
 		generateFile({
 			type: "json",
 			output: "manifest.json",
-			data: {
-				name: "warrr",
-				id: "1387759100113360584",
-				api: "1.0.0",
-				main: "code.js",
-				capabilities: [],
-				enableProposedApi: false,
-				documentAccess: "dynamic-page",
-				editorType: ["figma"],
-				ui: "index.html",
-				networkAccess: {
-					allowedDomains: ["none"],
-				},
-			},
+			data: manifest,
 		}),
 	],
 	build: {
