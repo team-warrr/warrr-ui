@@ -1,6 +1,6 @@
 {
   "name": "warrr",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "figma plugin react boilerplate",
   "main": "dist/code.js",
   "scripts": {
