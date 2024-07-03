@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": "warn"
+  }
+}
