@@ -16,14 +16,14 @@
         "groups": ["builtin", "external", "internal", "type", "parent", "sibling"],
         "pathGroups": [
           {
-            "pattern": "react*",
+            "pattern": "react",
             "group": "external",
             "position": "before"
           },
           {
             "pattern": "@/**",
-            "group": "external",
-            "position": "after"
+            "group": "internal",
+            "position": "before"
           }
         ],
         "alphabetize": {
@@ -31,7 +31,7 @@
           "caseInsensitive": true
         },
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["react", "@**"]
+        "pathGroupsExcludedImportTypes": ["react", "@/**"]
       }
     ]
   },
