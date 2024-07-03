@@ -6,6 +6,11 @@ on:
       - develop
     paths:
       - "packages/primitive/components/**/*"
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   storybook:
     runs-on: ubuntu-latest
