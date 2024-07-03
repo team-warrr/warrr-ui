@@ -1,0 +1,45 @@
+name: 스토리북 배포
+run-name: ${{ github.actor }}의 스토리북 배포
+on:
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - "packages/primitive/components/**/*"
+jobs:
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 리포지토리 체크아웃
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Corepack 활성화
+        run: corepack enable
+
+      - name: pnpm 설치
+        run: corepack prepare pnpm@latest --activate
+
+      - name: 의존성 설치
+        run: pnpm install
+
+      - name: Chromatic에 배포
+        id: publish_chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: packages/primitive
+
+      - name: PR에 댓글 추가
+        uses: thollander/actions-comment-pull-request@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: "🚀 스토리북이 배포되었습니다: ${{ steps.publish_chromatic.outputs.url }}"
