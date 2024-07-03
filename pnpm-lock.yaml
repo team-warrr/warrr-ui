@@ -27,18 +27,6 @@ importers:
         specifier: ^5.4.5
         version: 5.5.2
 
-  apps/primitive-docs:
-    devDependencies:
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-
-  apps/themed-docs:
-    devDependencies:
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-
   packages/plugins/boilerplate:
     dependencies:
       react:
