@@ -32,7 +32,7 @@ jobs:
         run: corepack prepare pnpm@latest --activate
 
       - name: 의존성 설치
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: chromatic에 배포
         id: publish_chromatic
