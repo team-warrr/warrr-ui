@@ -1,7 +1,49 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:import/recommended", "plugin:import/typescript"],
+  "plugins": ["import"],
   "rules": {
-    "no-console": "warn",
-    "no-unused-vars": "warn"
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "type", "parent", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["react", "@**"]
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+
+        // 추후 tsconfig.json 파일이 다른 경로에 생기는 경우 경로를 지정해줍니다.
+        "project": ["./tsconfig.json"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
