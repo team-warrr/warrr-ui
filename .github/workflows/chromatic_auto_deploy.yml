@@ -1,4 +1,4 @@
-name: 스토리북 배포
+name: Primitive UI 스토리북 배포
 run-name: ${{ github.actor }}의 스토리북 배포
 on:
   pull_request:
@@ -15,7 +15,7 @@ jobs:
   storybook:
     runs-on: ubuntu-latest
     steps:
-      - name: 리포지토리 체크아웃
+      - name: 레포지토리 체크아웃
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -34,7 +34,7 @@ jobs:
       - name: 의존성 설치
         run: pnpm install
 
-      - name: Chromatic에 배포
+      - name: chromatic에 배포
         id: publish_chromatic
         uses: chromaui/action@v1
         with:
@@ -42,9 +42,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           workingDir: packages/primitive
 
-      - name: PR에 댓글 추가
+      - name: chromatic 배포 URL 댓글 작성
         uses: thollander/actions-comment-pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          message: "🚀 스토리북이 배포되었습니다: ${{ steps.publish_chromatic.outputs.url }}"
+          message: "🐱 스토리북이 배포되었습니다: ${{ steps.publish_chromatic.outputs.url }} 🐱"
