@@ -14,9 +14,9 @@ const meta: Meta = {
     layout: "fullscreen",
   },
   args: {
-    onLogin: fn(),
-    onLogout: fn(),
-    onCreateAccount: fn(),
+    onLogin: () => alert("Logged in"),
+    onLogout: () => alert("Logged out"),
+    onCreateAccount: () => alert("Account created"),
   },
 } satisfies Meta<typeof Header>;
 
