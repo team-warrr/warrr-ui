@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "prettier": "exec prettier . --write"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.12.0",
