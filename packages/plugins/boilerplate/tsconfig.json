@@ -1,13 +1,9 @@
 {
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6", "dom"],
-    "strict": true,
     "outDir": "dist",
     "typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   }
 }
