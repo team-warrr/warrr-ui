@@ -1,0 +1,6 @@
+{
+  "extends": ["../../../.eslintrc.json", "plugin:@figma/figma-plugins/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
