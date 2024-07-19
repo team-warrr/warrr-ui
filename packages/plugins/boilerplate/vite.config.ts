@@ -1,7 +1,9 @@
-import react from "@vitejs/plugin-react";
 import path from "path";
+
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import generateFile from "vite-plugin-generate-file";
+
 import manifest from "./figma.manifest";
 import { injectBundledJsIntoHTML } from "./injectBundledJsIntoHTML";
 
