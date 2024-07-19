@@ -4,7 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "prettier": "exec prettier . --write"
+    "prettier": "exec prettier . --write",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.12.0",
