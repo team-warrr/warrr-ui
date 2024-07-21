@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {{componentName}} from "@/components/{{componentName}}";
+import {{pascalCase componentName}} from "../src/{{componentName}}";
 
 const meta = {
-  title: "UI/{{componentName}}",
-  component: {{componentName}},
+  title: "UI/{{pascalCase componentName}}",
+  component: {{pascalCase componentName}},
   tags: ["autodocs"],
   parameters: {
     // 컴포넌트 부제목 작성 ex. 버튼 컴포넌트
@@ -23,7 +23,7 @@ const meta = {
       options: ["option1", "option2"],
     },
   },
-} satisfies Meta<typeof {{componentName}}>;
+} satisfies Meta<typeof {{pascalCase componentName}}>;
 
 export default meta;
 
