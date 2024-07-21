@@ -1,22 +1,14 @@
-import { forwardRef } from "react";
 import type { CSSProperties } from "react";
+import { forwardRef } from "react";
 
-export type {{componentName}}Props {
+export type {{pascalCase componentName}}PropsType = {
   style?: CSSProperties;
   className?: string;
-}
+};
 
-const {{componentName}} = forwardRef<"div", {{componentName}}Props>(
-  {
-    ...rest
-  }: {{componentName}}Props,
-  ref
-) => {
-  return (
-    <div ref={ref} {...rest}></div>
-  )
-}
+const {{pascalCase componentName}} = forwardRef<HTMLDivElement, {{pascalCase componentName}}PropsType>(({ ...rest }, ref) => {
+  return <div ref={ref} {...rest}></div>;
+});
 
-{{componentName}}.displayName = "{{componentName}}";
-
-export default {{componentName}};
+{{pascalCase componentName}}.displayName = "{{pascalCase componentName}}";
+export default {{pascalCase componentName}};
