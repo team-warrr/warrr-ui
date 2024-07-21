@@ -9,12 +9,20 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         name: "componentName",
         message: "Enter the name of the component you want to create (ex. Button): ",
       },
+      {
+        type: "list",
+        name: "packageName",
+        message: "Select the package where you want to create the component: \n",
+        choices: ["primitive", "themed"],
+      },
     ],
     actions: [
       {
         type: "addMany",
         templateFiles: "./templates/component/**",
-        destination: "packages/primitive/components/{{componentName}}",
+        base: "./templates/component",
+        destination: `packages/{{packageName}}/components/{{componentName}}`,
+        abortOnFail: true,
       },
     ],
   });
