@@ -1,0 +1,22 @@
+import { forwardRef } from "react";
+import type { CSSProperties } from "react";
+
+export type {{componentName}}Props {
+  style?: CSSProperties;
+  className?: string;
+}
+
+const {{componentName}} = forwardRef<"div", {{componentName}}Props>(
+  {
+    ...rest
+  }: {{componentName}}Props,
+  ref
+) => {
+  return (
+    <div ref={ref} {...rest}></div>
+  )
+}
+
+{{componentName}}.displayName = "{{componentName}}";
+
+export default {{componentName}};
