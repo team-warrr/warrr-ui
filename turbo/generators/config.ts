@@ -7,7 +7,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: "input",
         name: "componentName",
-        message: "Enter the name of the component you want to create (ex. Button): ",
+        message: "Enter the name of the component you want to create (ex. button): ",
       },
       {
         type: "list",
