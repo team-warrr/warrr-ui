@@ -1,0 +1,10 @@
+import { defineConfig } from "tsup";
+
+export default defineConfig({
+  target: "ES2020",
+  clean: true,
+  dts: true,
+  format: ["cjs", "esm"],
+  minify: true,
+  banner: { js: '"use client";' },
+});
