@@ -6,7 +6,13 @@
     "dev": "turbo dev",
     "prettier": "exec prettier . --write --cache",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix --cache",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint-staged": {
+      "*.{ts,tsx}": [
+        "pnpm lint",
+        "pnpm prettier"
+      ]
+    }
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.12.0",
@@ -17,6 +23,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "husky": "^9.1.3",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "turbo": "^2.0.4",
     "typescript": "^5.4.5",
