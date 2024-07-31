@@ -5,7 +5,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "prettier": "exec prettier . --write",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "publish-packages": "turbo run lint && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
