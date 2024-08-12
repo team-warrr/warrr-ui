@@ -58,6 +58,21 @@ jobs:
           path: .playwright/
           retention-days: 1
 
+      - name: 실패한 테스트 아티팩트 업로드
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: failed-test-artifacts
+          path: |
+            failed-visual-test.png
+            .playwright/results/*.log
+
+      - name: 테스트 로그 출력
+        if: failure()
+        run: |
+          echo "Test Logs:"
+          cat .playwright/results/*.log
+
       - name: 테스트 결과 요약 생성
         id: test-summary
         if: always()
