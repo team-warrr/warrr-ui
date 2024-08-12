@@ -41,8 +41,8 @@ jobs:
         working-directory: packages/primitive
         run: |
           npx serve -l 6006 storybook-static &
-          pid=$!
-          echo "pid=$pid" >> $GITHUB_OUTPUT
+          echo "storybook_pid=$!" >> $GITHUB_OUTPUT
+          echo "Storybook PID: $!"
           sleep 5
 
       # - name: Playwright 디렉토리 구조 확인
@@ -99,5 +99,12 @@ jobs:
             })
 
       - name: Storybook 프로세스 종료
-        run: pkill -f "storybook dev"
         if: always()
+        run: |
+          if [ -n "${{ steps.storybook.outputs.storybook_pid }}" ]; then
+            echo "Stopping Storybook process with PID ${{ steps.storybook.outputs.storybook_pid }}"
+            kill ${{ steps.storybook.outputs.storybook_pid }} || true
+          else
+            echo "Storybook PID not found, trying to kill all serve processes"
+            pkill -f "serve -l 6006" || true
+          fi

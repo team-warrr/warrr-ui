@@ -83,7 +83,7 @@
       }
     ],
     "shard": null,
-    "updateSnapshots": "all",
+    "updateSnapshots": "missing",
     "version": "1.46.0",
     "workers": 5,
     "webServer": null
@@ -104,7 +104,7 @@
           "specs": [
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -116,17 +116,57 @@
                   "results": [
                     {
                       "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 703,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 1107,
+                      "error": {
+                        "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  324 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                        "stack": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  324 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24",
+                        "location": {
+                          "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                          "column": 24,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                            "column": 24,
+                            "line": 12
+                          },
+                          "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  324 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 324 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m\n\n\u001b[2m    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24\u001b[22m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:15.803Z",
-                      "attachments": []
+                      "startTime": "2024-08-12T07:24:42.759Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                        "column": 24,
+                        "line": 12
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-f411095b4d7a7207787e",
@@ -149,12 +189,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 818,
+                      "duration": 972,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:15.809Z",
+                      "startTime": "2024-08-12T07:24:42.745Z",
                       "attachments": []
                     }
                   ],
@@ -163,12 +203,12 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-88976050552a720a57fd",
               "file": "components/Button.test.ts",
-              "line": 22,
+              "line": 15,
               "column": 7
             },
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -180,17 +220,57 @@
                   "results": [
                     {
                       "workerIndex": 2,
-                      "status": "passed",
-                      "duration": 945,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 1463,
+                      "error": {
+                        "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  310 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                        "stack": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  310 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24",
+                        "location": {
+                          "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                          "column": 24,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                            "column": 24,
+                            "line": 12
+                          },
+                          "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  310 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 310 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m\n\n\u001b[2m    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24\u001b[22m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:15.812Z",
-                      "attachments": []
+                      "startTime": "2024-08-12T07:24:42.759Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                        "column": 24,
+                        "line": 12
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-9b41d4ab3bf8ed6fb360",
@@ -213,12 +293,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1106,
+                      "duration": 1438,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:15.801Z",
+                      "startTime": "2024-08-12T07:24:42.750Z",
                       "attachments": []
                     }
                   ],
@@ -227,12 +307,12 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-80d45ed3fa2dbcc14d45",
               "file": "components/Button.test.ts",
-              "line": 22,
+              "line": 15,
               "column": 7
             },
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -244,17 +324,57 @@
                   "results": [
                     {
                       "workerIndex": 4,
-                      "status": "passed",
-                      "duration": 684,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 1384,
+                      "error": {
+                        "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  309 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                        "stack": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  309 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24",
+                        "location": {
+                          "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                          "column": 24,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                            "column": 24,
+                            "line": 12
+                          },
+                          "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  309 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png\u001b[39m\nReceived: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png\u001b[39m\n    Diff: \u001b[33m/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- expect.toHaveScreenshot with timeout 5000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 309 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n\u001b[0m \u001b[90m 10 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m   test(\u001b[32m\"axe를 사용하여 자동 접근성 테스트\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }\u001b[33m:\u001b[39m { page\u001b[33m:\u001b[39m \u001b[33mPage\u001b[39m }) \u001b[33m=>\u001b[39m {\u001b[0m\n\n\u001b[2m    at /Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts:12:24\u001b[22m"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:15.801Z",
-                      "attachments": []
+                      "startTime": "2024-08-12T07:24:42.763Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png",
+                          "contentType": "image/png",
+                          "path": "/Users/mj/Desktop/dev/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-diff.png"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mj/Desktop/dev/warrr-ui/e2e/components/Button.test.ts",
+                        "column": 24,
+                        "line": 12
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-d425228141c78bf583f3",
@@ -275,14 +395,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 5,
                       "status": "passed",
-                      "duration": 601,
+                      "duration": 779,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:06:16.648Z",
+                      "startTime": "2024-08-12T07:24:44.281Z",
                       "attachments": []
                     }
                   ],
@@ -291,7 +411,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-5120bb9063b0336c94ab",
               "file": "components/Button.test.ts",
-              "line": 22,
+              "line": 15,
               "column": 7
             }
           ]
@@ -301,11 +421,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-12T07:06:15.453Z",
-    "duration": 2491.567,
-    "expected": 6,
+    "startTime": "2024-08-12T07:24:42.418Z",
+    "duration": 3016.425,
+    "expected": 3,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 3,
     "flaky": 0
   }
 }
