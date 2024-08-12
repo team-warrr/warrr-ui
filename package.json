@@ -6,7 +6,7 @@
     "dev": "turbo dev",
     "prettier": "exec prettier . --write",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "e2e": "playwright test --update-snapshots"
+    "e2e": "playwright test"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",

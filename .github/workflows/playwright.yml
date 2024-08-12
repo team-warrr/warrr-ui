@@ -75,12 +75,6 @@ jobs:
         env:
           CI: true
 
-      - name: 테스트 로그 출력
-        if: always()
-        run: |
-          echo "Test Logs:"
-          find .playwright -name "*.log" -exec cat {} +
-
       - name: 테스트 결과 업로드
         uses: actions/upload-artifact@v4
         if: ${{ always() }}
@@ -88,12 +82,6 @@ jobs:
           name: vrt-report
           path: .playwright/
           retention-days: 1
-
-      - name: 테스트 로그 출력
-        if: failure()
-        run: |
-          echo "Test Logs:"
-          cat .playwright/results/*.log
 
       - name: PR에 코멘트 작성
         uses: actions/github-script@v6
