@@ -39,3 +39,7 @@ yarn-error.log*
 
 *storybook.log
 .eslintcache
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
