@@ -38,6 +38,8 @@ jobs:
 
       - name: Playwright 테스트 실행
         run: pnpm run e2e
+        env:
+          CI: true
 
       - name: 테스트 결과 업로드
         uses: actions/upload-artifact@v3
