@@ -70,10 +70,25 @@ jobs:
             done
           fi
 
+      - name: 테스트 실행 전 스냅샷 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: pre-test-snapshots
+          path: .playwright/snapshots
+          retention-days: 1
+
       - name: Playwright 테스트 실행
         run: pnpm run e2e
         env:
           CI: true
+
+      - name: 테스트 실행 후 스냅샷 업로드
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-test-snapshots
+          path: .playwright/snapshots
+          retention-days: 1
 
       - name: 테스트 결과 업로드
         uses: actions/upload-artifact@v4
