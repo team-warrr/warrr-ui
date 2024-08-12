@@ -36,6 +36,12 @@ jobs:
           pnpm run storybook & 
           npx wait-on http://localhost:6006
 
+      - name: Playwright 설치 확인
+        run: pnpm exec playwright --version
+
+      - name: Playwright 테스트 실행 (단일 브라우저)
+        run: pnpm exec playwright test --project=chromium
+
       - name: Playwright 테스트 실행
         run: pnpm run e2e
         env:
