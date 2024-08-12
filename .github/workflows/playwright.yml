@@ -37,8 +37,7 @@ jobs:
           npx wait-on http://localhost:6006
 
       - name: Playwright 테스트 실행
-        run: npx playwright test
-        # run: pnpm run e2e
+        run: pnpm run e2e
         env:
           CI: true
 
