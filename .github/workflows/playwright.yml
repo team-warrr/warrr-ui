@@ -45,10 +45,22 @@ jobs:
           echo "pid=$pid" >> $GITHUB_OUTPUT
           sleep 5
 
+      - name: 디버그 - 파일 구조 확인
+        if: always()
+        run: |
+          echo "Current directory structure:"
+          ls -R
+
       - name: Playwright 테스트 실행
         run: pnpm run e2e
         env:
           CI: true
+
+      - name: 테스트 로그 출력
+        if: always()
+        run: |
+          echo "Test Logs:"
+          find .playwright -name "*.log" -exec cat {} +
 
       - name: 테스트 결과 업로드
         uses: actions/upload-artifact@v4
