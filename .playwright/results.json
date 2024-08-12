@@ -117,12 +117,16 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 935,
+                      "duration": 1193,
                       "errors": [],
-                      "stdout": [],
+                      "stdout": [
+                        {
+                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png is re-generated, writing actual.\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:10.827Z",
+                      "startTime": "2024-08-12T08:01:34.322Z",
                       "attachments": []
                     }
                   ],
@@ -149,12 +153,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 1063,
+                      "duration": 946,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:10.838Z",
+                      "startTime": "2024-08-12T08:01:34.314Z",
                       "attachments": []
                     }
                   ],
@@ -181,12 +185,16 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 1280,
+                      "duration": 1677,
                       "errors": [],
-                      "stdout": [],
+                      "stdout": [
+                        {
+                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png is re-generated, writing actual.\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:10.846Z",
+                      "startTime": "2024-08-12T08:01:34.311Z",
                       "attachments": []
                     }
                   ],
@@ -213,12 +221,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1462,
+                      "duration": 1584,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:10.838Z",
+                      "startTime": "2024-08-12T08:01:34.332Z",
                       "attachments": []
                     }
                   ],
@@ -245,12 +253,16 @@
                     {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 1150,
+                      "duration": 1315,
                       "errors": [],
-                      "stdout": [],
+                      "stdout": [
+                        {
+                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png is re-generated, writing actual.\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:10.842Z",
+                      "startTime": "2024-08-12T08:01:34.330Z",
                       "attachments": []
                     }
                   ],
@@ -277,12 +289,12 @@
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 618,
+                      "duration": 803,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:53:12.527Z",
+                      "startTime": "2024-08-12T08:01:36.000Z",
                       "attachments": []
                     }
                   ],
@@ -301,8 +313,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-12T07:53:10.549Z",
-    "duration": 2746.46,
+    "startTime": "2024-08-12T08:01:33.974Z",
+    "duration": 3310.1499999999996,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
