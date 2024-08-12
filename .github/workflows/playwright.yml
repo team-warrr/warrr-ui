@@ -30,11 +30,18 @@ jobs:
       - name: Playwright 브라우저 설치
         run: pnpm exec playwright install --with-deps
 
-      - name: Storybook 실행
+      - name: 스토리북 빌드
+        run: npx storybook build
+        working-directory: packages/primitive
+
+      - name: 스토리북 실행
+        id: storybook
+        working-directory: packages/primitive
         run: |
-          cd packages/primitive
-          pnpm run storybook & 
-          npx wait-on http://localhost:6006
+          npx serve -l 6006 storybook-static &
+          pid=$!
+          echo "pid=$pid" >> $GITHUB_OUTPUT
+          sleep 5
 
       - name: Playwright 테스트 실행
         run: pnpm run e2e
