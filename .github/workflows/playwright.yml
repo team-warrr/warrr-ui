@@ -58,6 +58,14 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      - name: 테스트 결과 업로드
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: vrt-report
+          path: .playwright/
+          retention-days: 1
+
       - name: 테스트 결과 요약 생성
         id: test-summary
         if: always()
