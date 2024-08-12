@@ -83,7 +83,7 @@
       }
     ],
     "shard": null,
-    "updateSnapshots": "missing",
+    "updateSnapshots": "all",
     "version": "1.46.0",
     "workers": 5,
     "webServer": null
@@ -117,12 +117,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 523,
+                      "duration": 687,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:41.198Z",
+                      "startTime": "2024-08-12T07:40:38.083Z",
                       "attachments": []
                     }
                   ],
@@ -149,12 +149,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 659,
+                      "duration": 830,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:41.196Z",
+                      "startTime": "2024-08-12T07:40:38.078Z",
                       "attachments": []
                     }
                   ],
@@ -181,12 +181,12 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 986,
+                      "duration": 973,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:41.187Z",
+                      "startTime": "2024-08-12T07:40:38.089Z",
                       "attachments": []
                     }
                   ],
@@ -213,12 +213,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1149,
+                      "duration": 1276,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:41.182Z",
+                      "startTime": "2024-08-12T07:40:38.085Z",
                       "attachments": []
                     }
                   ],
@@ -245,12 +245,12 @@
                     {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 688,
+                      "duration": 823,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:41.188Z",
+                      "startTime": "2024-08-12T07:40:38.076Z",
                       "attachments": []
                     }
                   ],
@@ -277,12 +277,12 @@
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 753,
+                      "duration": 828,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T07:30:42.211Z",
+                      "startTime": "2024-08-12T07:40:39.306Z",
                       "attachments": []
                     }
                   ],
@@ -301,8 +301,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-12T07:30:40.908Z",
-    "duration": 2424.093,
+    "startTime": "2024-08-12T07:40:37.799Z",
+    "duration": 2688.3459999999995,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
