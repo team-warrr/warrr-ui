@@ -1,0 +1,49 @@
+name: Storybook Playwright Tests
+run-name: ${{ github.actor }}의 Playwright 시각적 회귀, 접근성 테스트
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  vrt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v2
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: pnpm 설치
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 의존성 설치
+        run: pnpm install --frozen-lockfile
+
+      - name: Storybook 실행
+        run: |
+          cd packages/primitive
+          pnpm run storybook & 
+          npx wait-on http://localhost:6006
+
+      - name: Playwright 테스트 실행
+        run: pnpm run e2e
+
+      - name: 테스트 결과 업로드
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Storybook 프로세스 종료
+        run: pkill -f "storybook dev"
+        if: always()
