@@ -27,6 +27,9 @@ jobs:
       - name: 의존성 설치
         run: pnpm install --no-frozen-lockfile
 
+      - name: Playwright 브라우저 설치
+        run: pnpm exec playwright install --with-deps
+
       - name: Storybook 실행
         run: |
           cd packages/primitive
