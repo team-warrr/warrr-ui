@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Node.js 설정
         uses: actions/setup-node@v4
