@@ -1,3 +1,5 @@
+import path from "node:path";
+
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
@@ -7,6 +9,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
+  outputDir: path.join(__dirname, ".playwright", "results"),
+  snapshotDir: path.join(__dirname, ".playwright", "snapshots"),
   use: {
     baseURL: "http://localhost:6006",
     trace: "on-first-retry",
