@@ -4,9 +4,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "format": "prettier . --write --cache",
-    "lint": "eslint . --ext .ts,.tsx --fix --cache",
-    "prepare": "husky"
+    "prettier": "exec prettier . --write",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "e2e": "playwright test --update-snapshots"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.9.1",
