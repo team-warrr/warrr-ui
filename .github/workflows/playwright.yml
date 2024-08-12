@@ -37,7 +37,8 @@ jobs:
           npx wait-on http://localhost:6006
 
       - name: Playwright 테스트 실행
-        run: pnpm run e2e
+        run: npx playwright test --project=playwright.config.ts
+        # run: pnpm run e2e
         env:
           CI: true
 
