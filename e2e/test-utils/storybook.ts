@@ -50,15 +50,8 @@ export async function visit(page: Page, options: Options) {
   await page.goto(url.toString());
 
   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능
-  // await page.waitForSelector("body.sb-show-main:not(.sb-show-preparing-story)");
-  // await page.waitForSelector("#storybook-root > *");
-  console.log("Waiting for body selector");
   await page.waitForSelector("body.sb-show-main:not(.sb-show-preparing-story)");
-  console.log("Body selector found");
-
-  console.log("Waiting for storybook root selector");
   await page.waitForSelector("#storybook-root > *");
-  console.log("Storybook root selector found");
 }
 
 function serializeObject<T extends { [Key: string]: Value }>(
