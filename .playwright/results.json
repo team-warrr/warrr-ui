@@ -83,7 +83,7 @@
       }
     ],
     "shard": null,
-    "updateSnapshots": "missing",
+    "updateSnapshots": "all",
     "version": "1.46.0",
     "workers": 5,
     "webServer": null
@@ -117,25 +117,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 829,
+                      "duration": 703,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:26:59.731Z",
+                      "startTime": "2024-08-12T07:06:15.803Z",
                       "attachments": []
                     }
                   ],
@@ -162,25 +149,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 962,
+                      "duration": 818,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:26:59.741Z",
+                      "startTime": "2024-08-12T07:06:15.809Z",
                       "attachments": []
                     }
                   ],
@@ -189,7 +163,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-88976050552a720a57fd",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 22,
               "column": 7
             },
             {
@@ -207,25 +181,12 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 1195,
+                      "duration": 945,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:26:59.729Z",
+                      "startTime": "2024-08-12T07:06:15.812Z",
                       "attachments": []
                     }
                   ],
@@ -252,25 +213,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1424,
+                      "duration": 1106,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:26:59.735Z",
+                      "startTime": "2024-08-12T07:06:15.801Z",
                       "attachments": []
                     }
                   ],
@@ -279,7 +227,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-80d45ed3fa2dbcc14d45",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 22,
               "column": 7
             },
             {
@@ -297,25 +245,12 @@
                     {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 1089,
+                      "duration": 684,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:26:59.733Z",
+                      "startTime": "2024-08-12T07:06:15.801Z",
                       "attachments": []
                     }
                   ],
@@ -340,27 +275,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 4,
                       "status": "passed",
-                      "duration": 628,
+                      "duration": 601,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Waiting for body selector\n"
-                        },
-                        {
-                          "text": "Body selector found\n"
-                        },
-                        {
-                          "text": "Waiting for storybook root selector\n"
-                        },
-                        {
-                          "text": "Storybook root selector found\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-12T06:27:01.372Z",
+                      "startTime": "2024-08-12T07:06:16.648Z",
                       "attachments": []
                     }
                   ],
@@ -369,7 +291,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-5120bb9063b0336c94ab",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 22,
               "column": 7
             }
           ]
@@ -379,8 +301,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-12T06:26:59.443Z",
-    "duration": 2710.976,
+    "startTime": "2024-08-12T07:06:15.453Z",
+    "duration": 2491.567,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
