@@ -45,30 +45,30 @@ jobs:
           echo "pid=$pid" >> $GITHUB_OUTPUT
           sleep 5
 
-      - name: Playwright 디렉토리 구조 확인
-        if: always()
-        run: |
-          echo "Playwright directory structure:"
-          if [ -d ".playwright" ]; then
-            find .playwright -type d -print0 | while IFS= read -r -d '' dir; do
-              echo "Directory: $dir"
-              ls -la "$dir"
-              echo "-------------------"
-            done
-            
-            echo "All files in .playwright directory (including subdirectories):"
-            find .playwright -type f
-          else
-            echo ".playwright directory not found. Checking current directory:"
-            pwd
-            ls -la
-            echo "Checking for any playwright-related directories:"
-            find . -maxdepth 2 -type d -name "*playwright*" -print0 | while IFS= read -r -d '' dir; do
-              echo "Found directory: $dir"
-              ls -la "$dir"
-              echo "-------------------"
-            done
-          fi
+      # - name: Playwright 디렉토리 구조 확인
+      #   if: always()
+      #   run: |
+      #     echo "Playwright directory structure:"
+      #     if [ -d ".playwright" ]; then
+      #       find .playwright -type d -print0 | while IFS= read -r -d '' dir; do
+      #         echo "Directory: $dir"
+      #         ls -la "$dir"
+      #         echo "-------------------"
+      #       done
+
+      #       echo "All files in .playwright directory (including subdirectories):"
+      #       find .playwright -type f
+      #     else
+      #       echo ".playwright directory not found. Checking current directory:"
+      #       pwd
+      #       ls -la
+      #       echo "Checking for any playwright-related directories:"
+      #       find . -maxdepth 2 -type d -name "*playwright*" -print0 | while IFS= read -r -d '' dir; do
+      #         echo "Found directory: $dir"
+      #         ls -la "$dir"
+      #         echo "-------------------"
+      #       done
+      #     fi
 
       - name: Playwright 테스트 실행
         run: pnpm run e2e
