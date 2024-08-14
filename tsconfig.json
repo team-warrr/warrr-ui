@@ -19,6 +19,5 @@
     "resolveJsonModule": true,
     "incremental": true
   },
-  "include": ["apps/**/*", "packages/**/*", "./.eslintrc.json"],
   "exclude": ["node_modules"]
 }
