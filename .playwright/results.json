@@ -114,28 +114,17 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 743,
+                      "duration": 1034,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-linux.png, writing actual.\n"
+                          "text": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-linux.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:05.871Z",
-                      "attachments": [
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-linux.png"
-                        },
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
-                        }
-                      ]
+                      "startTime": "2024-08-15T21:13:25.127Z",
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -161,12 +150,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 816,
+                      "duration": 809,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:06.854Z",
+                      "startTime": "2024-08-15T21:13:26.431Z",
                       "attachments": []
                     }
                   ],
@@ -193,28 +182,17 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 1415,
+                      "duration": 1843,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-linux.png, writing actual.\n"
+                          "text": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-linux.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:08.146Z",
-                      "attachments": [
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-linux.png"
-                        },
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
-                        }
-                      ]
+                      "startTime": "2024-08-15T21:13:27.729Z",
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -240,12 +218,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 969,
+                      "duration": 917,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:10.224Z",
+                      "startTime": "2024-08-15T21:13:30.511Z",
                       "attachments": []
                     }
                   ],
@@ -272,28 +250,17 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 2538,
+                      "duration": 4167,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-linux.png, writing actual.\n"
+                          "text": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-linux.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:12.123Z",
-                      "attachments": [
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-linux.png"
-                        },
-                        {
-                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
-                        }
-                      ]
+                      "startTime": "2024-08-15T21:13:32.377Z",
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -319,12 +286,12 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 960,
+                      "duration": 1028,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T21:06:16.370Z",
+                      "startTime": "2024-08-15T21:13:38.735Z",
                       "attachments": []
                     }
                   ],
@@ -343,8 +310,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-15T21:06:05.313Z",
-    "duration": 12060.418,
+    "startTime": "2024-08-15T21:13:24.566Z",
+    "duration": 15243.547,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
