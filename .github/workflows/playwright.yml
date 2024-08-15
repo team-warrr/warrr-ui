@@ -26,6 +26,12 @@ jobs:
         with:
           version: 8
 
+      - name: 시스템 폰트 설치 및 캐시 업데이트
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-roboto
+          fc-cache -f -v
+
       - name: 의존성 설치
         run: pnpm install --no-frozen-lockfile
 
@@ -44,6 +50,13 @@ jobs:
           echo "storybook_pid=$!" >> $GITHUB_OUTPUT
           echo "Storybook PID: $!"
           sleep 5
+
+      - name: 폰트 설치 확인
+        run: |
+          echo "Installed fonts:"
+          fc-list
+          echo "Font cache:"
+          fc-cache -v
 
       - name: Playwright 디렉토리 구조 확인
         if: always()
