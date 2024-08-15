@@ -1,8 +1,8 @@
 import type { PlopTypes } from "@turbo/gen";
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-  plop.setGenerator("component base file generator", {
-    description: "generate component base files",
+  plop.setGenerator("컴포넌트 기본 파일 생성기", {
+    description: "컴포넌트의 기본 파일을 생성합니다.",
     prompts: [
       {
         type: "input",
