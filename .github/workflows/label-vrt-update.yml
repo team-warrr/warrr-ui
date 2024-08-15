@@ -44,8 +44,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update VRT snapshots" || echo "No changes to commit"
+          git add .playwright
+          git diff --staged --quiet || git commit -m "Update VRT snapshots in .playwright folder"
           git push origin HEAD:${{ github.head_ref }}
 
       - name: PR 코멘트 작성
