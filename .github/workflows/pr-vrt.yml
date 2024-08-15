@@ -1,0 +1,59 @@
+name: PR VRT 테스트
+on:
+  pull_request:
+    branches: [develop]
+
+jobs:
+  vrt-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 의존성 설치
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Playwright 설치
+        run: pnpm exec playwright install --with-deps
+
+      - name: 스토리북 빌드
+        run: pnpm run build-storybook
+        working-directory: packages/primitive
+
+      - name: 스토리북 실행
+        run: |
+          npx serve -l 6006 packages/primitive/storybook-static &
+          echo $! > .storybook-pid
+
+      - name: VRT 테스트 실행
+        run: pnpm run e2e
+
+      - name: 스토리북 프로세스 종료
+        if: always()
+        run: kill $(cat .storybook-pid)
+
+      - name: 테스트 결과 업로드
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 1
+
+      - name: PR 코멘트 작성
+        uses: actions/github-script@v6
+        if: failure()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## VRT 테스트 실패\n\nVRT 테스트가 실패했습니다. 자세한 내용은 첨부된 테스트 결과를 확인해주세요. 스냅샷 업데이트가 필요한 경우, PR에 "VRT" 레이블을 추가해주세요.'
+            })
