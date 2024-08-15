@@ -46,7 +46,7 @@ jobs:
         id: storybook
         working-directory: packages/primitive
         run: |
-          pnpm exec serve -l 6006 storybook-static &
+          npx serve -l 6006 storybook-static &
           echo "storybook_pid=$!" >> $GITHUB_OUTPUT
           echo "* Storybook 실행 (PID: $!)" >> $GITHUB_STEP_SUMMARY
 
