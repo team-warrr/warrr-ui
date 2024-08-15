@@ -1,8 +1,8 @@
 {
   "config": {
-    "configFile": "/app/playwright.config.ts",
-    "rootDir": "/app/e2e",
-    "forbidOnly": false,
+    "configFile": "/home/runner/work/warrr-ui/warrr-ui/playwright.config.ts",
+    "rootDir": "/home/runner/work/warrr-ui/warrr-ui/e2e",
+    "forbidOnly": true,
     "fullyParallel": true,
     "globalSetup": null,
     "globalTeardown": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 5
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "reporter": [
@@ -20,16 +20,13 @@
         null
       ],
       [
-        "html",
-        {
-          "open": "never",
-          "outputFolder": "/app/.playwright/report"
-        }
+        "blob",
+        null
       ],
       [
         "json",
         {
-          "outputFile": "/app/.playwright/results.json"
+          "outputFile": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results.json"
         }
       ]
     ],
@@ -40,13 +37,13 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/app/.playwright/results",
+        "outputDir": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {},
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/app/e2e",
+        "testDir": "/home/runner/work/warrr-ui/warrr-ui/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -54,13 +51,13 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/app/.playwright/results",
+        "outputDir": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {},
         "id": "firefox",
         "name": "firefox",
-        "testDir": "/app/e2e",
+        "testDir": "/home/runner/work/warrr-ui/warrr-ui/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -68,13 +65,13 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/app/.playwright/results",
+        "outputDir": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "metadata": {},
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/app/e2e",
+        "testDir": "/home/runner/work/warrr-ui/warrr-ui/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -83,9 +80,9 @@
       }
     ],
     "shard": null,
-    "updateSnapshots": "missing",
+    "updateSnapshots": "all",
     "version": "1.46.0",
-    "workers": 5,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
@@ -104,7 +101,7 @@
           "specs": [
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -116,41 +113,32 @@
                   "results": [
                     {
                       "workerIndex": 0,
-                      "status": "failed",
-                      "duration": 92,
-                      "error": {
-                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
+                      "status": "passed",
+                      "duration": 743,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16"
+                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-linux.png, writing actual.\n"
                         }
                       ],
-                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:34.651Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:05.871Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-linux.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-chromium/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        }
+                      ]
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-f411095b4d7a7207787e",
@@ -160,7 +148,7 @@
             },
             {
               "title": "axe를 사용하여 자동 접근성 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -171,42 +159,18 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "status": "failed",
-                      "duration": 93,
-                      "error": {
-                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16"
-                        }
-                      ],
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 816,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:34.670Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:06.854Z",
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-88976050552a720a57fd",
@@ -216,7 +180,7 @@
             },
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -227,42 +191,33 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "status": "failed",
-                      "duration": 541,
-                      "error": {
-                        "message": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
+                      "workerIndex": 1,
+                      "status": "passed",
+                      "duration": 1415,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16"
+                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-linux.png, writing actual.\n"
                         }
                       ],
-                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:34.646Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:08.146Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-linux.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-firefox/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        }
+                      ]
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-9b41d4ab3bf8ed6fb360",
@@ -272,7 +227,7 @@
             },
             {
               "title": "axe를 사용하여 자동 접근성 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -283,42 +238,18 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "status": "failed",
-                      "duration": 516,
-                      "error": {
-                        "message": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: NS_ERROR_CONNECTION_REFUSED\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16"
-                        }
-                      ],
+                      "workerIndex": 1,
+                      "status": "passed",
+                      "duration": 969,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:34.652Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:10.224Z",
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-80d45ed3fa2dbcc14d45",
@@ -328,7 +259,7 @@
             },
             {
               "title": "primary 시각적 회귀 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -339,42 +270,33 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "status": "failed",
-                      "duration": 297,
-                      "error": {
-                        "message": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 2538,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:8:16"
+                          "text": "A snapshot doesn't exist at /home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-linux.png, writing actual.\n"
                         }
                       ],
-                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:34.648Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:12.123Z",
+                      "attachments": [
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-linux.png"
+                        },
+                        {
+                          "name": "Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/warrr-ui/warrr-ui/.playwright/results/components-Button-Button-컴포넌트-primary-시각적-회귀-테스트-webkit/Button-컴포넌트-primary-시각적-회귀-테스트-1-actual.png"
+                        }
+                      ]
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-d425228141c78bf583f3",
@@ -384,7 +306,7 @@
             },
             {
               "title": "axe를 사용하여 자동 접근성 테스트",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -395,42 +317,18 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "status": "failed",
-                      "duration": 154,
-                      "error": {
-                        "message": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n",
-                        "stack": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16",
-                        "location": {
-                          "file": "/app/e2e/test-utils/storybook.ts",
-                          "column": 14,
-                          "line": 50
-                        },
-                        "snippet": "   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/app/e2e/test-utils/storybook.ts",
-                            "column": 14,
-                            "line": 50
-                          },
-                          "message": "Error: page.goto: Could not connect to localhost: Connection refused\nCall log:\n  \u001b[2m- navigating to \"http://localhost:6006/iframe.html?id=example-button--primary&viewMode=story\", waiting until \"load\"\u001b[22m\n\n\n   at test-utils/storybook.ts:50\n\n  48 |   }\n  49 |\n> 50 |   await page.goto(url.toString());\n     |              ^\n  51 |\n  52 |   // 스토리북이 로딩될 때까지 대기하여야 playwright 테스트 가능\n  53 |   await page.waitForSelector(\"body.sb-show-main:not(.sb-show-preparing-story)\");\n\n    at visit (/app/e2e/test-utils/storybook.ts:50:14)\n    at /app/e2e/components/Button.test.ts:16:16"
-                        }
-                      ],
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 960,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T19:16:35.804Z",
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "/app/e2e/test-utils/storybook.ts",
-                        "column": 14,
-                        "line": 50
-                      }
+                      "startTime": "2024-08-15T21:06:16.370Z",
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ae6d8ccd909362ca9a3d-5120bb9063b0336c94ab",
@@ -445,11 +343,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-15T19:16:33.894Z",
-    "duration": 2140.544,
-    "expected": 0,
+    "startTime": "2024-08-15T21:06:05.313Z",
+    "duration": 12060.418,
+    "expected": 6,
     "skipped": 0,
-    "unexpected": 6,
+    "unexpected": 0,
     "flaky": 0
   }
 }
