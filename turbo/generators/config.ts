@@ -7,12 +7,12 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: "input",
         name: "componentName",
-        message: "Enter the name of the component you want to create (ex. button): ",
+        message: "생성할 컴포넌트의 이름을 입력하세요 (예: button): ",
       },
       {
         type: "list",
         name: "packageName",
-        message: "Select the package where you want to create the component: \n",
+        message: "컴포넌트를 생성할 패키지를 선택하세요: \n",
         choices: ["primitive", "themed"],
       },
     ],
