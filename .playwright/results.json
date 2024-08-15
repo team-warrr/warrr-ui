@@ -117,7 +117,7 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 2060,
+                      "duration": 1840,
                       "errors": [],
                       "stdout": [
                         {
@@ -128,14 +128,11 @@
                         },
                         {
                           "text": "Button font info: {\n  fontFamily: \u001b[32m'Roboto, Arial, \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif'\u001b[39m,\n  fontWeight: \u001b[32m'400'\u001b[39m\n}\n"
-                        },
-                        {
-                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:43.366Z",
+                      "startTime": "2024-08-15T18:00:40.749Z",
                       "attachments": []
                     }
                   ],
@@ -162,12 +159,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 1054,
+                      "duration": 978,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:43.366Z",
+                      "startTime": "2024-08-15T18:00:40.739Z",
                       "attachments": []
                     }
                   ],
@@ -194,7 +191,7 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 3459,
+                      "duration": 2767,
                       "errors": [],
                       "stdout": [
                         {
@@ -205,14 +202,11 @@
                         },
                         {
                           "text": "Button font info: {\n  fontFamily: \u001b[32m'\"Roboto\", \"Arial\", \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif'\u001b[39m,\n  fontWeight: \u001b[32m'400'\u001b[39m\n}\n"
-                        },
-                        {
-                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:43.364Z",
+                      "startTime": "2024-08-15T18:00:40.750Z",
                       "attachments": []
                     }
                   ],
@@ -239,12 +233,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1322,
+                      "duration": 1441,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:43.361Z",
+                      "startTime": "2024-08-15T18:00:40.735Z",
                       "attachments": []
                     }
                   ],
@@ -271,7 +265,7 @@
                     {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 2309,
+                      "duration": 2111,
                       "errors": [],
                       "stdout": [
                         {
@@ -282,14 +276,11 @@
                         },
                         {
                           "text": "Button font info: { fontFamily: \u001b[32m'system-ui'\u001b[39m, fontWeight: \u001b[32m'400'\u001b[39m }\n"
-                        },
-                        {
-                          "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:43.362Z",
+                      "startTime": "2024-08-15T18:00:40.738Z",
                       "attachments": []
                     }
                   ],
@@ -316,12 +307,12 @@
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 879,
+                      "duration": 801,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T09:57:45.163Z",
+                      "startTime": "2024-08-15T18:00:42.506Z",
                       "attachments": []
                     }
                   ],
@@ -340,8 +331,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-15T09:57:43.027Z",
-    "duration": 4654.2339999999995,
+    "startTime": "2024-08-15T18:00:40.413Z",
+    "duration": 4055.678,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
