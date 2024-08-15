@@ -9,6 +9,8 @@ test.describe("Button 컴포넌트", () => {
       id: "example-button--primary",
     });
 
+    await page.waitForFunction(() => document.fonts.ready);
+    await page.waitForTimeout(1000); // 1초 대기
     await expect(page).toHaveScreenshot();
   });
 
