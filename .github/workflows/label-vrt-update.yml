@@ -1,0 +1,73 @@
+name: VRT 스냅샷 업데이트
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  update-snapshots:
+    if: github.event.label.name == 'VRT'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 의존성 설치
+        run: pnpm install
+
+      - name: Playwright 설치
+        run: pnpm exec playwright install --with-deps
+
+      - name: 스토리북 빌드
+        run: pnpm run build-storybook
+
+        working-directory: packages/primitive
+      - name: 스토리북 실행
+        run: |
+          npx serve -l 6006 packages/primitive/storybook-static &
+          echo $! > .storybook-pid
+
+      - name: 스냅샷 업데이트
+        run: pnpm run e2e:update
+
+      - name: 스토리북 프로세스 종료
+        if: always()
+        run: kill $(cat .storybook-pid)
+
+      - name: 변경된 스냅샷 커밋 및 푸시
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .playwright
+          git diff --staged --quiet || git commit -m "Update VRT snapshots in .playwright folder"
+          git push origin HEAD:${{ github.head_ref }}
+
+      - name: PR 코멘트 작성
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## VRT 스냅샷 업데이트 완료\n\n스냅샷이 성공적으로 업데이트되었습니다. 변경된 스냅샷이 이 PR에 포함되었습니다. 리뷰해주세요.'
+            })
+
+      - name: VRT 레이블 제거
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.removeLabel({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'VRT'
+            })
