@@ -31,21 +31,42 @@ jobs:
           echo $! > .storybook-pid
 
       - name: VRT 테스트 실행
-        run: pnpm run e2e
+        id: vrt-test
+        run: |
+          if pnpm run e2e; then
+            echo "결과=성공" >> $GITHUB_OUTPUT
+          else
+            echo "결과=실패" >> $GITHUB_OUTPUT
+          fi
 
       - name: 스토리북 프로세스 종료
         if: always()
         run: kill $(cat .storybook-pid)
 
-      - name: 테스트 결과 업로드
+      - name: 테스트 결과 및 diff 이미지 업로드
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 1
+          name: vrt-results
+          path: |
+            playwright-report/
+            .playwright/
+          retention-days: 7
 
-      - name: PR 코멘트 작성
+      - name: PR 코멘트 작성 (성공)
+        uses: actions/github-script@v6
+        if: success()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## VRT 테스트 성공\n\nVRT 테스트가 성공적으로 완료되었습니다. 모든 컴포넌트가 예상대로 렌더링되었습니다.'
+            })
+
+      - name: PR 코멘트 작성 (실패)
         uses: actions/github-script@v6
         if: failure()
         with:
@@ -55,5 +76,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '## VRT 테스트 실패\n\nVRT 테스트가 실패했습니다. 자세한 내용은 첨부된 테스트 결과를 확인해주세요. 스냅샷 업데이트가 필요한 경우, PR에 "VRT" 레이블을 추가해주세요.'
+              body: '## VRT 테스트 실패\n\nVRT 테스트가 실패했습니다. 자세한 내용은 첨부된 테스트 결과와 diff 이미지를 확인해주세요.\n\n[테스트 결과 확인](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})\n\n스냅샷 업데이트가 필요한 경우, PR에 "VRT" 레이블을 추가해주세요.'
             })
