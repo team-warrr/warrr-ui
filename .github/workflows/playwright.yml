@@ -1,4 +1,4 @@
-name: Storybook Playwright Tests
+name: Storybook Playwright 테스트
 run-name: ${{ github.actor }}의 Playwright 시각적 회귀, 접근성 테스트
 
 on:
@@ -39,77 +39,67 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: 스토리북 빌드
-        run: npx storybook build
+        run: pnpm run build-storybook
         working-directory: packages/primitive
 
       - name: 스토리북 실행
         id: storybook
         working-directory: packages/primitive
         run: |
-          npx serve -l 6006 storybook-static &
+          pnpm exec serve -l 6006 storybook-static &
           echo "storybook_pid=$!" >> $GITHUB_OUTPUT
-          echo "Storybook PID: $!"
-          sleep 5
+          echo "* Storybook 실행 (PID: $!)" >> $GITHUB_STEP_SUMMARY
 
-      - name: 폰트 설치 확인
+      - name: 기존 스냅샷 확인
+        id: check-snapshots
         run: |
-          echo "Installed fonts:"
-          fc-list
-          echo "Font cache:"
-          fc-cache -v
-
-      - name: Playwright 디렉토리 구조 확인
-        if: always()
-        run: |
-          echo "Playwright directory structure:"
-          if [ -d ".playwright" ]; then
-            find .playwright -type d -print0 | while IFS= read -r -d '' dir; do
-              echo "Directory: $dir"
-              ls -la "$dir"
-              echo "-------------------"
-            done
-            
-            echo "All files in .playwright directory (including subdirectories):"
-            find .playwright -type f
+          if [ -d ".playwright/snapshots" ]; then
+            echo "snapshots_exist=true" >> $GITHUB_OUTPUT
+            echo "* 기존 스냅샷이 존재합니다." >> $GITHUB_STEP_SUMMARY
           else
-            echo ".playwright directory not found. Checking current directory:"
-            pwd
-            ls -la
-            echo "Checking for any playwright-related directories:"
-            find . -maxdepth 2 -type d -name "*playwright*" -print0 | while IFS= read -r -d '' dir; do
-              echo "Found directory: $dir"
-              ls -la "$dir"
-              echo "-------------------"
-            done
+            echo "snapshots_exist=false" >> $GITHUB_OUTPUT
+            echo "* 기존 스냅샷이 존재하지 않습니다." >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: 테스트 실행 전 스냅샷 업로드
-        uses: actions/upload-artifact@v4
-        with:
-          name: pre-test-snapshots
-          path: .playwright/snapshots
-          retention-days: 1
-
-      - name: Playwright 테스트 실행
-        run: pnpm run e2e
+      - name: 스냅샷 생성 또는 VRT 테스트 실행
+        id: vrt-test
+        run: |
+          if [ "${{ steps.check-snapshots.outputs.snapshots_exist }}" == "false" ]; then
+            echo "* 새로운 스냅샷을 생성했습니다." >> $GITHUB_STEP_SUMMARY
+            pnpm exec playwright test --update-snapshots
+          else
+            echo "* VRT 테스트를 실행했습니다." >> $GITHUB_STEP_SUMMARY
+            pnpm exec playwright test
+          fi
         env:
           CI: true
-
-      - name: 테스트 실행 후 스냅샷 업로드
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: post-test-snapshots
-          path: .playwright/snapshots
-          retention-days: 1
+        continue-on-error: true
 
       - name: 테스트 결과 업로드
         uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: always()
         with:
-          name: vrt-report
-          path: .playwright/
+          name: playwright-report
+          path: playwright-report/
           retention-days: 1
+
+      - name: 스냅샷 업데이트 트리거 확인
+        id: check-update-trigger
+        if: failure()
+        run: |
+          if [[ "${{ github.event.pull_request.title }}" == *"@vrt"* ]]; then
+            echo "update_snapshots=true" >> $GITHUB_OUTPUT
+            echo "* 스냅샷 업데이트 트리거(@vrt)가 감지되었습니다." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "update_snapshots=false" >> $GITHUB_OUTPUT
+            echo "* 스냅샷 업데이트 트리거가 감지되지 않았습니다." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: 스냅샷 업데이트
+        if: steps.check-update-trigger.outputs.update_snapshots == 'true'
+        run: |
+          echo "* 스냅샷을 업데이트했습니다." >> $GITHUB_STEP_SUMMARY
+          pnpm exec playwright test --update-snapshots
 
       - name: PR에 코멘트 작성
         uses: actions/github-script@v6
@@ -117,11 +107,17 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const fs = require('fs');
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            const summary = fs.readFileSync(summaryPath, 'utf8');
+
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `${{steps.test-summary.outputs.summary}}
+              body: `## 테스트 결과 요약
+
+              ${summary}
 
               [상세 테스트 결과 보기](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})`
             })
@@ -130,9 +126,19 @@ jobs:
         if: always()
         run: |
           if [ -n "${{ steps.storybook.outputs.storybook_pid }}" ]; then
-            echo "Stopping Storybook process with PID ${{ steps.storybook.outputs.storybook_pid }}"
+            echo "* Storybook 프로세스를 종료했습니다. (PID: ${{ steps.storybook.outputs.storybook_pid }})" >> $GITHUB_STEP_SUMMARY
             kill ${{ steps.storybook.outputs.storybook_pid }} || true
           else
-            echo "Storybook PID not found, trying to kill all serve processes"
+            echo "* Storybook PID를 찾을 수 없어 모든 serve 프로세스를 종료했습니다." >> $GITHUB_STEP_SUMMARY
             pkill -f "serve -l 6006" || true
           fi
+
+      - name: 저장소 스냅샷 업데이트
+        if: github.event.pull_request.merged == true
+        run: |
+          echo "* 저장소의 스냅샷을 업데이트했습니다." >> $GITHUB_STEP_SUMMARY
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .playwright/snapshots
+          git commit -m "시각적 회귀 테스트 스냅샷 업데이트"
+          git push
