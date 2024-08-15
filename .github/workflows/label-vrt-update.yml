@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -24,8 +26,8 @@ jobs:
 
       - name: 스토리북 빌드
         run: pnpm run build-storybook
-        working-directory: packages/primitive
 
+        working-directory: packages/primitive
       - name: 스토리북 실행
         run: |
           npx serve -l 6006 packages/primitive/storybook-static &
@@ -38,13 +40,13 @@ jobs:
         if: always()
         run: kill $(cat .storybook-pid)
 
-      - name: 변경된 스냅샷 커밋
+      - name: 변경된 스냅샷 커밋 및 푸시
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Update VRT snapshots" || echo "No changes to commit"
-          git push
+          git push origin HEAD:${{ github.head_ref }}
 
       - name: PR 코멘트 작성
         uses: actions/github-script@v6
