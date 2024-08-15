@@ -117,16 +117,25 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 1176,
+                      "duration": 2060,
                       "errors": [],
                       "stdout": [
+                        {
+                          "text": "Is bold Arial loaded? \u001b[33mfalse\u001b[39m\n"
+                        },
+                        {
+                          "text": "document.fonts.check result: \u001b[33mtrue\u001b[39m\n"
+                        },
+                        {
+                          "text": "Button font info: {\n  fontFamily: \u001b[32m'Roboto, Arial, \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif'\u001b[39m,\n  fontWeight: \u001b[32m'400'\u001b[39m\n}\n"
+                        },
                         {
                           "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-chromium-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:25.395Z",
+                      "startTime": "2024-08-15T09:57:43.366Z",
                       "attachments": []
                     }
                   ],
@@ -153,12 +162,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 974,
+                      "duration": 1054,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:25.393Z",
+                      "startTime": "2024-08-15T09:57:43.366Z",
                       "attachments": []
                     }
                   ],
@@ -167,7 +176,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-88976050552a720a57fd",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 60,
               "column": 7
             },
             {
@@ -185,16 +194,25 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 1589,
+                      "duration": 3459,
                       "errors": [],
                       "stdout": [
+                        {
+                          "text": "Is bold Arial loaded? \u001b[33mfalse\u001b[39m\n"
+                        },
+                        {
+                          "text": "document.fonts.check result: \u001b[33mtrue\u001b[39m\n"
+                        },
+                        {
+                          "text": "Button font info: {\n  fontFamily: \u001b[32m'\"Roboto\", \"Arial\", \"Nunito Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif'\u001b[39m,\n  fontWeight: \u001b[32m'400'\u001b[39m\n}\n"
+                        },
                         {
                           "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-firefox-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:25.400Z",
+                      "startTime": "2024-08-15T09:57:43.364Z",
                       "attachments": []
                     }
                   ],
@@ -221,12 +239,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 1512,
+                      "duration": 1322,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:25.388Z",
+                      "startTime": "2024-08-15T09:57:43.361Z",
                       "attachments": []
                     }
                   ],
@@ -235,7 +253,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-80d45ed3fa2dbcc14d45",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 60,
               "column": 7
             },
             {
@@ -253,16 +271,25 @@
                     {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 1406,
+                      "duration": 2309,
                       "errors": [],
                       "stdout": [
+                        {
+                          "text": "Is bold Arial loaded? \u001b[33mfalse\u001b[39m\n"
+                        },
+                        {
+                          "text": "document.fonts.check result: \u001b[33mtrue\u001b[39m\n"
+                        },
+                        {
+                          "text": "Button font info: { fontFamily: \u001b[32m'system-ui'\u001b[39m, fontWeight: \u001b[32m'400'\u001b[39m }\n"
+                        },
                         {
                           "text": "/Users/mj/Desktop/dev/warrr-ui/.playwright/snapshots/components/Button.test.ts-snapshots/Button-컴포넌트-primary-시각적-회귀-테스트-1-webkit-darwin.png is re-generated, writing actual.\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:25.400Z",
+                      "startTime": "2024-08-15T09:57:43.362Z",
                       "attachments": []
                     }
                   ],
@@ -289,12 +316,12 @@
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 619,
+                      "duration": 879,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-08-15T08:57:27.188Z",
+                      "startTime": "2024-08-15T09:57:45.163Z",
                       "attachments": []
                     }
                   ],
@@ -303,7 +330,7 @@
               ],
               "id": "ae6d8ccd909362ca9a3d-5120bb9063b0336c94ab",
               "file": "components/Button.test.ts",
-              "line": 15,
+              "line": 60,
               "column": 7
             }
           ]
@@ -313,8 +340,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-15T08:57:25.098Z",
-    "duration": 2864.952,
+    "startTime": "2024-08-15T09:57:43.027Z",
+    "duration": 4654.2339999999995,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
