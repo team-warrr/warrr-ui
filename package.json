@@ -6,13 +6,13 @@
     "dev": "turbo dev",
     "prettier": "exec prettier . --write --cache",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix --cache",
-    "prepare": "husky",
-    "lint-staged": {
-      "*.{ts,tsx}": [
-        "pnpm lint",
-        "pnpm prettier"
-      ]
-    }
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "pnpm lint",
+      "pnpm prettier"
+    ]
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.12.0",
