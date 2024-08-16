@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "prettier": "exec prettier . --write --cache",
+    "format": "prettier . --write --cache",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix --cache",
     "prepare": "husky"
   },
