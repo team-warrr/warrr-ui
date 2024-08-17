@@ -3,6 +3,10 @@ on:
   pull_request:
     branches: [develop]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   vrt-test:
     runs-on: ubuntu-latest
