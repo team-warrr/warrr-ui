@@ -36,7 +36,7 @@ jobs:
 
       - name: chromatic에 배포
         id: publish_chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
