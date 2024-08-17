@@ -33,6 +33,14 @@ jobs:
       - name: 의존성 설치
         run: pnpm install --no-frozen-lockfile
 
+      - name: Check if token exists
+        run: |
+          if [ -n "${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}" ]; then
+            echo "PRIMITIVE_UI_CHROMATIC_TOKEN is set"
+          else
+            echo "PRIMITIVE_UI_CHROMATIC_TOKEN is not set"
+          fi
+
       - name: chromatic에 배포
         id: publish_chromatic
         uses: chromaui/action@latest
