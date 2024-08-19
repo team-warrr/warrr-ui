@@ -3,7 +3,20 @@ import { promisify } from "util";
 
 import type { PlopTypes } from "@turbo/gen";
 
+function toKebabCase(input: string): string {
+  return input
+    .replace(/([a-z])([A-Z])/g, '$1-$2') 
+    .replace(/\s+/g, '-')                
+    .toLowerCase();                     
+}
+
+
+
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
+  plop.setHelper("kebabCase", (text: string) => {
+    return toKebabCase(text);
+  });
+
   plop.setActionType("format", async () => {
     try {
       const execPromise = promisify(exec);
@@ -26,7 +39,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: "input",
         name: "componentName",
-        message: "생성할 컴포넌트의 이름을 입력하세요 (예: button): ",
+        message: "생성할 컴포넌트의 이름을 입력하세요 (예: Button): ",
       },
       {
         type: "list",
@@ -40,7 +53,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         type: "addMany",
         templateFiles: "./templates/component/**",
         base: "./templates/component",
-        destination: `packages/{{packageName}}/components/{{componentName}}`,
+        destination: `packages/{{packageName}}/components/{{kebabCase componentName}}`,
         abortOnFail: true,
       },
       {
