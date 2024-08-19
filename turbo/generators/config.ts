@@ -1,6 +1,25 @@
+import { exec } from "child_process";
+import { promisify } from "util";
+
 import type { PlopTypes } from "@turbo/gen";
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
+  plop.setActionType("format", async () => {
+    try {
+      const execPromise = promisify(exec);
+      const { stdout, stderr } = await execPromise("pnpm format");
+  
+      if (stderr) {
+        throw new Error(`pnpm format 실패: ${stderr}`);
+      }
+  
+      console.log(stdout);
+      return "pnpm format이 성공적으로 적용되었습니다.";
+    } catch (error) {
+      throw new Error(`pnpm format 실패: ${(error as Error).message}`);
+    }
+  });
+
   plop.setGenerator("컴포넌트 기본 파일 생성기", {
     description: "컴포넌트의 기본 파일을 생성합니다.",
     prompts: [
@@ -23,6 +42,9 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         base: "./templates/component",
         destination: `packages/{{packageName}}/components/{{componentName}}`,
         abortOnFail: true,
+      },
+      {
+        type: "format",
       },
     ],
   });
