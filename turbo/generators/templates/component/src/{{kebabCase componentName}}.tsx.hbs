@@ -4,8 +4,13 @@ import { forwardRef } from "react";
 export interface {{pascalCase componentName}}Props extends ComponentProps<"div"> {};
 
 const {{pascalCase componentName}} = forwardRef<HTMLDivElement, {{pascalCase componentName}}Props>(
+<<<<<<< HEAD
   (props, ref: ForwardedRef<HTMLDivElement>) => {
     return <div ref={ref} {...props}></div>;
+=======
+  ({ ...rest }, ref: ForwardedRef<HTMLDivElement>) => {
+    return <div ref={ref} {...rest}></div>;
+>>>>>>> db8d5bc (feat/#12 Primitive UI codegen 세팅 (#42))
   }
 );
 
