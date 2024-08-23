@@ -19,6 +19,6 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true
   },
-  "include": ["apps/**/*", "packages/**/*"],
+  "include": ["apps/**/*", "packages/**/*", "./.eslintrc.json"],
   "exclude": ["node_modules"]
 }
