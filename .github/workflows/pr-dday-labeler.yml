@@ -1,0 +1,22 @@
+name: PR D-day Labeler
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR D-day Labeler
+        uses: minai621/pr-dday-labeler@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
