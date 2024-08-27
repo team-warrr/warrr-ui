@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createRef } from "react";
 
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 
 import { Divider } from "../src";
