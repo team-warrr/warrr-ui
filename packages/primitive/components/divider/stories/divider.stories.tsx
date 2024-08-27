@@ -7,20 +7,15 @@ const meta = {
   component: Divider,
   tags: ["autodocs"],
   parameters: {
-    // 컴포넌트 부제목 작성 ex. 버튼 컴포넌트
-    componentSubtitle: "",
+    componentSubtitle: "Divider 컴포넌트",
   },
   argTypes: {
-    props1: {
-      description: "",
+    orientation: {
+      description: "Divider의 방향을 설정합니다.",
       control: {
-        // text, number, boolean, color, check, radio 등 존재
-        // control 불가능하게 하고 싶을 경우 false로 설정
-        // ex. control: false,
-        // 참고 : https://storybook.js.org/docs/react/essentials/controls
         type: "select",
       },
-      options: ["option1", "option2"],
+      options: ["horizontal", "vertical"],
     },
   },
 } satisfies Meta<typeof Divider>;
@@ -30,5 +25,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    orientation: "horizontal",
+    style: {
+      width: "100%",
+      height: "1px",
+      backgroundColor: "black",
+    },
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    orientation: "vertical",
+    style: {
+      width: "1px",
+      height: "100vh",
+      backgroundColor: "black",
+    },
+  },
 };
