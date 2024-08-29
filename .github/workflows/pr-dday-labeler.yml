@@ -2,7 +2,7 @@ name: PR D-day Labeler
 
 on:
   schedule:
-    - cron: "0 3 * * *"
+    - cron: "0 15 * * *"
   pull_request:
     types: [opened, reopened]
   workflow_dispatch:
