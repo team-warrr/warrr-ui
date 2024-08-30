@@ -19,5 +19,6 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true
   },
+  "include": ["e2e/**/*.ts", "playwright.config.ts"],
   "exclude": ["node_modules"]
 }
