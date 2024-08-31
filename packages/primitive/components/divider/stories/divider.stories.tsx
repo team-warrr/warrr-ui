@@ -7,7 +7,8 @@ const meta = {
   component: Divider,
   tags: ["autodocs"],
   parameters: {
-    componentSubtitle: "Divider 컴포넌트",
+    componentSubtitle:
+      "콘텐츠 섹션을 시각적으로 구분할 때 사용합니다. 레이아웃의 구조를 명확히 하며, 사용자의 정보 탐색을 돕습니다. 선택적으로 텍스트를 포함할 수 있어 콘텐츠 간의 관계나 주제 전환을 나타낼 수 있습니다.",
   },
   argTypes: {
     orientation: {
@@ -40,7 +41,7 @@ export const Vertical: Story = {
     orientation: "vertical",
     style: {
       width: "1px",
-      height: "100vh",
+      height: "100px",
       backgroundColor: "black",
     },
   },
