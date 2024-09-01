@@ -40,3 +40,7 @@ yarn-error.log*
 *storybook.log
 .eslintcache
 local.secrets
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

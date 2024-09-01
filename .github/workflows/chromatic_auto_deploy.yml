@@ -25,18 +25,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Corepack 활성화
-        run: corepack enable
-
-      - name: pnpm 설치
-        run: corepack prepare pnpm@latest --activate
+      - name: pnpm 8.15.6 설치
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.6
 
       - name: 의존성 설치
         run: pnpm install --no-frozen-lockfile
 
+      - name: Check if token exists
+        run: |
+          if [ -n "${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}" ]; then
+            echo "PRIMITIVE_UI_CHROMATIC_TOKEN is set"
+          else
+            echo "PRIMITIVE_UI_CHROMATIC_TOKEN is not set"
+          fi
+
       - name: chromatic에 배포
         id: publish_chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
