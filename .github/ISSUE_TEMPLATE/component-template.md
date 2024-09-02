@@ -2,7 +2,7 @@
 name: Component Template
 about: Describe this issue template's purpose here.
 title: "컴포넌트 이슈 작성 템플릿"
-labels: ""
+labels: "🎯 기능 구현"
 assignees: ""
 ---
 
