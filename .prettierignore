@@ -1,2 +1,5 @@
 turbo/
 pnpm-lock.yaml
+.playwright/report/index.html
+.playwright/results.json
+.playwright/results/.last-run.json
