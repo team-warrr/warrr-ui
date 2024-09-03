@@ -19,6 +19,13 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true
   },
-  "include": ["apps/**/*", "packages/**/*"],
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "e2e/**/*.ts",
+    "playwright.config.ts",
+    "jest.config.ts",
+    "jest.setup.ts"
+  ],
   "exclude": ["node_modules"]
 }
