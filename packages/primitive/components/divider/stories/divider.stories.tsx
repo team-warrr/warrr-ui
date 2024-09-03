@@ -28,11 +28,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     orientation: "horizontal",
-    style: {
-      width: "100%",
-      height: "1px",
-      backgroundColor: "black",
-    },
   },
 };
 
