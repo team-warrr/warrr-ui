@@ -20,4 +20,16 @@ describe("Divider", () => {
 
     expect(ref.current).not.toBeNull();
   });
+
+  it("orientation이 default(horizontal)일 때 hr 태그를 렌더링해야 합니다.", () => {
+    const { container } = render(<Divider />);
+
+    expect(container.querySelector("hr")).toBeInTheDocument();
+  });
+
+  it("orientation이 vertical일 때 div 태그를 렌더링해야 합니다.", () => {
+    const { container } = render(<Divider orientation="vertical" />);
+
+    expect(container.querySelector("div")).toBeInTheDocument();
+  });
 });
