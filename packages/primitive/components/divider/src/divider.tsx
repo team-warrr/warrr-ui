@@ -1,21 +1,32 @@
 import type { ComponentProps, ForwardedRef } from "react";
-import { forwardRef } from "react";
+import { createElement, forwardRef } from "react";
 
 const DEFAULT_ORIENTATION = "horizontal";
 
 type Orientation = "horizontal" | "vertical";
-export interface DividerProps extends ComponentProps<"div"> {
-  orientation?: Orientation;
-}
+type DivProps = ComponentProps<"div">;
+type HrProps = ComponentProps<"hr">;
+export type DividerProps = DivProps &
+  HrProps & {
+    orientation?: Orientation;
+  };
 
-const Divider = forwardRef<HTMLDivElement, DividerProps>(
-  ({ ...rest }, ref: ForwardedRef<HTMLDivElement>) => {
+const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>(
+  ({ ...rest }, ref: ForwardedRef<HTMLDivElement | HTMLHRElement>) => {
     const { orientation: orientaionProp = DEFAULT_ORIENTATION, ...restProps } = rest;
-    const orientaion = orientaionProp === "vertical" ? "vertical" : DEFAULT_ORIENTATION;
+    const isVertical = orientaionProp === "vertical";
 
-    return <div role="separator" aria-orientation={orientaion} ref={ref} {...restProps} />;
+    const tag = isVertical ? "div" : "hr";
+    const orientaion = isVertical ? "vertical" : DEFAULT_ORIENTATION;
+
+    return createElement(tag, {
+      role: "separator",
+      "aria-orientaion": orientaion,
+      ref,
+      ...restProps,
+    });
   }
 );
 
-Divider.displayName = "Divider";
+Divider.displayName = "WarrrUI.Divider";
 export default Divider;
