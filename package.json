@@ -1,5 +1,5 @@
 {
-  "name": "warrr-ui",
+  "name": "@warrr-ui",
   "private": true,
   "scripts": {
     "build": "turbo build",
