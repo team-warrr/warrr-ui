@@ -4,8 +4,8 @@ import { forwardRef } from "react";
 export interface {{pascalCase componentName}}Props extends ComponentProps<"div"> {};
 
 const {{pascalCase componentName}} = forwardRef<HTMLDivElement, {{pascalCase componentName}}Props>(
-  ({ ...rest }, ref: ForwardedRef<HTMLDivElement>) => {
-    return <div ref={ref} {...rest}></div>;
+  (props, ref: ForwardedRef<HTMLDivElement>) => {
+    return <div ref={ref} {...props}></div>;
   }
 );
 
