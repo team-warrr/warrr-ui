@@ -1,8 +1,5 @@
 turbo/
 pnpm-lock.yaml
-<<<<<<< HEAD
 .playwright/report/index.html
 .playwright/results.json
 .playwright/results/.last-run.json
-=======
->>>>>>> db8d5bc (feat/#12 Primitive UI codegen 세팅 (#42))
