@@ -1,5 +1,5 @@
 import type { ComponentProps, ForwardedRef } from "react";
-import { createElement, forwardRef } from "react";
+import { forwardRef } from "react";
 
 const DEFAULT_ORIENTATION = "horizontal";
 
@@ -12,19 +12,19 @@ export type DividerProps = DivProps &
   };
 
 const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>(
-  ({ ...rest }, ref: ForwardedRef<HTMLDivElement | HTMLHRElement>) => {
+  ({ ...rest }, ref: unknown) => {
     const { orientation: orientationProp = DEFAULT_ORIENTATION, ...restProps } = rest;
     const isVertical = orientationProp === "vertical";
 
-    const tag = isVertical ? "div" : "hr";
+    const Component = isVertical ? "div" : "hr";
     const orientation = isVertical ? "vertical" : DEFAULT_ORIENTATION;
+    const refProp = ref as ForwardedRef<
+      typeof orientation extends "vertical" ? HTMLDivElement : HTMLHRElement
+    >;
 
-    return createElement(tag, {
-      role: "separator",
-      "aria-orientation": orientation,
-      ref,
-      ...restProps,
-    });
+    return (
+      <Component role="separator" aria-orientation={orientation} ref={refProp} {...restProps} />
+    );
   }
 );
 
