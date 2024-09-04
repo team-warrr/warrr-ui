@@ -25,11 +25,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    orientation: "horizontal",
-  },
-};
+export const Horizontal: Story = {};
 
 export const Vertical: Story = {
   args: {
