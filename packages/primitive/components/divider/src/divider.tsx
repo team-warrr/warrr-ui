@@ -13,15 +13,15 @@ export type DividerProps = DivProps &
 
 const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>(
   ({ ...rest }, ref: ForwardedRef<HTMLDivElement | HTMLHRElement>) => {
-    const { orientation: orientaionProp = DEFAULT_ORIENTATION, ...restProps } = rest;
-    const isVertical = orientaionProp === "vertical";
+    const { orientation: orientationProp = DEFAULT_ORIENTATION, ...restProps } = rest;
+    const isVertical = orientationProp === "vertical";
 
     const tag = isVertical ? "div" : "hr";
-    const orientaion = isVertical ? "vertical" : DEFAULT_ORIENTATION;
+    const orientation = isVertical ? "vertical" : DEFAULT_ORIENTATION;
 
     return createElement(tag, {
       role: "separator",
-      "aria-orientaion": orientaion,
+      "aria-orientation": orientation,
       ref,
       ...restProps,
     });
