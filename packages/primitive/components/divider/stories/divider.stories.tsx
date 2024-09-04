@@ -12,7 +12,8 @@ const meta = {
   },
   argTypes: {
     orientation: {
-      description: "Divider의 방향을 설정합니다.",
+      description:
+        "Divider의 방향을 설정합니다.<br/>default(horizontal)일 때는 hr 태그를, vertical일 때는 div 태그를 사용합니다.",
       control: {
         type: "select",
       },
