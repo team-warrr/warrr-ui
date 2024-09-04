@@ -11,22 +11,21 @@ export type DividerProps = DivProps &
     orientation?: Orientation;
   };
 
-const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>(
-  ({ ...rest }, ref: unknown) => {
-    const { orientation: orientationProp = DEFAULT_ORIENTATION, ...restProps } = rest;
-    const isVertical = orientationProp === "vertical";
+const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>((props, ref) => {
+  const { orientation: orientationProp = DEFAULT_ORIENTATION, ...restProps } = props;
+  const isVertical = orientationProp === "vertical";
 
-    const Component = isVertical ? "div" : "hr";
-    const orientation = isVertical ? "vertical" : DEFAULT_ORIENTATION;
-    const refProp = ref as ForwardedRef<
-      typeof orientation extends "vertical" ? HTMLDivElement : HTMLHRElement
-    >;
+  const Component = isVertical ? "div" : "hr";
+  const orientation = isVertical ? "vertical" : DEFAULT_ORIENTATION;
 
-    return (
-      <Component role="separator" aria-orientation={orientation} ref={refProp} {...restProps} />
-    );
-  }
-);
+  const typedRef = ref as ForwardedRef<
+    typeof orientation extends "vertical" ? HTMLDivElement : HTMLHRElement
+  >;
+
+  return (
+    <Component role="separator" aria-orientation={orientation} ref={typedRef} {...restProps} />
+  );
+});
 
 Divider.displayName = "WarrrUI.Divider";
 export default Divider;
