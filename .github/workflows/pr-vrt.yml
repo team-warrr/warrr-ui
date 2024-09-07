@@ -8,20 +8,12 @@ permissions:
   pull-requests: write
 
 jobs:
+  set-up:
+    uses: ghdtjgus76/warrr-ui/.github/workflows/set-up.yml@develop
   vrt-test:
     runs-on: ubuntu-latest
+    needs: set-up
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.15.6
-
-      - name: 의존성 설치
-        run: pnpm install --no-frozen-lockfile
-
       - name: Playwright 설치
         run: pnpm exec playwright install --with-deps
 
