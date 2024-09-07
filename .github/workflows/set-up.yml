@@ -1,0 +1,24 @@
+name: 공통 set-up
+
+on: workflow_call
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: pnpm 8.15.6 설치
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.6
+          run_install: |
+            args: ["--frozen-lockfile"]
