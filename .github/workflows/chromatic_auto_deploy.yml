@@ -43,7 +43,7 @@ jobs:
 
       - name: 의존성 설치
         run: |
-          if [ ! -d "node_modules" ] || [ ! -d "~/.pnpm-store" ]; then
+          if [ ! -d "node_modules" ] || [ ! -d "$HOME/.pnpm-store" ]; then
             echo "저장된 캐시가 없거나 캐시가 손상되었습니다. 의존성을 설치합니다."
             pnpm install --frozen-lockfile
           else
