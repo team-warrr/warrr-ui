@@ -11,19 +11,55 @@ jobs:
   vrt-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v3
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: pnpm/action-setup@v2
+
+      - name: pnpm 8.15.6 설치
+        uses: pnpm/action-setup@v2
         with:
           version: 8.15.6
 
+      - name: 캐시 pnpm 의존성
+        id: cache-pnpm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: 캐시 Playwright 브라우저
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
       - name: 의존성 설치
-        run: pnpm install --no-frozen-lockfile
+        run: |
+          if [ ! -d "node_modules" ] || [ ! -d "~/.pnpm-store" ]; then
+            echo "저장된 캐시가 없거나 캐시가 손상되었습니다. 의존성을 설치합니다."
+            pnpm install --frozen-lockfile
+          else
+            echo "캐시가 저장되어 있어, 설치 과정을 생략합니다."
+          fi
 
       - name: Playwright 설치
-        run: pnpm exec playwright install --with-deps
+        run: |
+          if [ ! -d "~/.cache/ms-playwright" ]; then
+            echo "저장된 캐시가 없습니다. playwright를 설치합니다."
+            pnpm exec playwright install --with-deps
+          else
+            echo "캐시가 저장되어 있어, 설치 과정을 생략합니다."
+          fi
 
       - name: 스토리북 빌드
         run: pnpm run build-storybook
