@@ -61,4 +61,22 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
   });
+
+  plop.setGenerator("컴포넌트 e2e 테스트 파일 생성기", {
+    description: "컴포넌트의 e2e 테스트 파일을 생성합니다.",
+    prompts: [
+      {
+        type: "input",
+        name: "componentName",
+        message: "생성할 컴포넌트의 이름을 입력하세요 (예: Button): ",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        templateFile: "./templates/e2e/test.ts.hbs",
+        path: 'e2e/components/{{componentName}}.test.ts',
+      },
+    ],
+  });
 }
