@@ -1,0 +1,47 @@
+name: PR 빌드 자동화
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v3
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: pnpm 8.15.6 설치
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.6
+
+      - name: 종속성 설치
+        run: pnpm install
+
+      - name: 빌드 실행
+        run: pnpm run build
+
+      - name: 테스트 실행
+        run: pnpm test
+
+  comment-on-failure:
+    runs-on: ubuntu-latest
+    needs: build
+    if: failure()
+    steps:
+      - name: PR에 코멘트 추가
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "빌드가 실패했으니 코드를 다시 확인해보세요."
+            })
