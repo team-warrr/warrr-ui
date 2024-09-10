@@ -7,9 +7,9 @@ import {
   isValidElement,
 } from "react";
 
-import { composeRefs } from "../utils/composedRef";
-import { getElementRef } from "../utils/getElementRef";
-import { mergeProps } from "../utils/mergeProps";
+import { composeRefs } from "../utils/composed-ref";
+import { getElementRef } from "../utils/get-element-ref";
+import { mergeProps } from "../utils/merge-props";
 
 export interface SlotCloneProps {}
 

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 
 import { ComposedChild } from "./components/composed-child";
-import { isSlottable } from "./utils/isSlottable";
+import { isSlottable } from "./utils/is-slottable";
 
 export interface SlotProps extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
