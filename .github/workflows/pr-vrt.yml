@@ -24,7 +24,7 @@ jobs:
         with:
           version: 8.15.6
 
-      - name: 캐시 pnpm 의존성
+      - name: pnpm 의존성 캐시
         id: cache-pnpm
         uses: actions/cache@v3
         with:
@@ -35,7 +35,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: 캐시 Playwright 브라우저
+      - name: Playwright 브라우저 캐시
         uses: actions/cache@v3
         with:
           path: ~/.cache/ms-playwright

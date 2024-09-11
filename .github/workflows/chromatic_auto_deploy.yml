@@ -30,7 +30,7 @@ jobs:
         with:
           version: 8.15.6
 
-      - name: 캐시 pnpm 의존성
+      - name: pnpm 의존성 캐시
         id: cache-pnpm
         uses: actions/cache@v3
         with:
