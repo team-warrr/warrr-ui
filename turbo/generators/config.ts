@@ -75,7 +75,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: "add",
         templateFile: "./templates/e2e/test.ts.hbs",
-        path: 'e2e/components/{{componentName}}.test.ts',
+        path: 'e2e/components/{{kebabCase componentName}}.test.ts',
       },
     ],
   });
