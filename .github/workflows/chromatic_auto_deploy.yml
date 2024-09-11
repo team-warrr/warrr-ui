@@ -43,8 +43,8 @@ jobs:
 
       - name: 의존성 설치
         run: |
-          chmod +x ../../../scripts/install-dependencies.sh
-          ../../../scripts/install-dependencies.sh
+          chmod +x ./scripts/install-dependencies.sh
+          ./scripts/install-dependencies.sh
 
       - name: Check if token exists
         run: |

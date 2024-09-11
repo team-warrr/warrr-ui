@@ -45,13 +45,13 @@ jobs:
 
       - name: 의존성 설치
         run: |
-          chmod +x ../../../scripts/install-dependencies.sh
-          ../../../scripts/install-dependencies.sh
+          chmod +x ./scripts/install-dependencies.sh
+          ./scripts/install-dependencies.sh
 
       - name: Playwright 설치
         run: |
-          chmod +x ../../../scripts/install-playwright.sh
-          ../../../scripts/install-playwright.sh
+          chmod +x ./scripts/install-playwright.sh
+          ./scripts/install-playwright.sh
 
       - name: 스토리북 빌드
         run: pnpm run build-storybook
