@@ -50,12 +50,8 @@ jobs:
 
       - name: Playwright 설치
         run: |
-          if [ ! -d "$HOME/.cache/ms-playwright" ]; then
-            echo "저장된 캐시가 없습니다. playwright를 설치합니다."
-            pnpm exec playwright install --with-deps
-          else
-            echo "캐시가 저장되어 있어, 설치 과정을 생략합니다."
-          fi
+          chmod +x ../../scripts/install-playwright.sh
+          ../../scripts/install-playwright.sh
 
       - name: 스토리북 빌드
         run: pnpm run build-storybook
