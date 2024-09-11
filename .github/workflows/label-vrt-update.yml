@@ -16,16 +16,14 @@ jobs:
       - name: 환경 변수 설정
         id: set-env
         run: |
-          # Load environment variables from file
-          while IFS= read -r line; do
-            echo "$line" >> $GITHUB_ENV
-          done < .github/environments/versions.env
-  
+          chmod +x ./scripts/set-env.sh
+          ./scripts/set-env.sh
+
       - name: Node.js 설정
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-  
+
       - name: pnpm 설치
         uses: pnpm/action-setup@v2
         with:
