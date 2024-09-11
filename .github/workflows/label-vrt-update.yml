@@ -13,15 +13,23 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 환경 변수 설정
+        id: set-env
+        run: |
+          # Load environment variables from file
+          while IFS= read -r line; do
+            echo "$line" >> $GITHUB_ENV
+          done < .github/environments/versions.env
+  
       - name: Node.js 설정
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      - name: pnpm 8.15.6 설치
+          node-version: ${{ env.NODE_VERSION }}
+  
+      - name: pnpm 설치
         uses: pnpm/action-setup@v2
         with:
-          version: 8.15.6
+          version: ${{ env.PNPM_VERSION }}
 
       - name: pnpm 의존성 캐시
         id: cache-pnpm
