@@ -39,6 +39,8 @@ jobs:
         uses: changesets/action@v1
         with:
           version: pnpm changeset version
+          title: "chore: 버전 업데이트"
+          commit: "chore: 버전 업데이트"
           publish: pnpm changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
