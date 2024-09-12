@@ -16,24 +16,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 레포지토리 체크아웃
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Node.js 설정
+      - name: 환경 변수 설정
+        id: set-env
+        run: |
+          chmod +x ./scripts/set-env.sh
+          ./scripts/set-env.sh
+
+      - name: node.js 설정
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: pnpm 8.15.6 설치
-        uses: pnpm/action-setup@v2
+      - name: pnpm 설치
+        uses: pnpm/action-setup@v4
         with:
-          version: 8.15.6
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: pnpm 의존성 캐시
+        id: cache-pnpm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       - name: 의존성 설치
-        run: pnpm install --no-frozen-lockfile
+        run: |
+          chmod +x ./scripts/install-dependencies.sh
+          ./scripts/install-dependencies.sh
 
-      - name: Check if token exists
+      - name: 토큰 존재 여부 체크
         run: |
           if [ -n "${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}" ]; then
             echo "PRIMITIVE_UI_CHROMATIC_TOKEN is set"

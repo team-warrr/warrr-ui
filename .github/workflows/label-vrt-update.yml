@@ -8,21 +8,55 @@ jobs:
     if: github.event.label.name == 'VRT'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+
+      - name: 환경 변수 설정
+        id: set-env
+        run: |
+          chmod +x ./scripts/set-env.sh
+          ./scripts/set-env.sh
+
+      - name: node.js 설정
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - uses: pnpm/action-setup@v2
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: pnpm 설치
+        uses: pnpm/action-setup@v4
         with:
-          version: 8.15.6
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: pnpm 의존성 캐시
+        id: cache-pnpm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: playwright 브라우저 캐시
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
 
       - name: 의존성 설치
-        run: pnpm install
+        run: |
+          chmod +x ./scripts/install-dependencies.sh
+          ./scripts/install-dependencies.sh
 
-      - name: Playwright 설치
-        run: pnpm exec playwright install --with-deps
+      - name: playwright 설치
+        run: |
+          chmod +x ./scripts/install-playwright.sh
+          ./scripts/install-playwright.sh
 
       - name: 스토리북 빌드
         run: pnpm run build-storybook
