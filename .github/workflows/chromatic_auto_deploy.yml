@@ -26,7 +26,7 @@ jobs:
           chmod +x ./scripts/set-env.sh
           ./scripts/set-env.sh
 
-      - name: Node.js 설정
+      - name: node.js 설정
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -52,7 +52,7 @@ jobs:
           chmod +x ./scripts/install-dependencies.sh
           ./scripts/install-dependencies.sh
 
-      - name: Check if token exists
+      - name: 토큰 존재 여부 체크
         run: |
           if [ -n "${{ secrets.PRIMITIVE_UI_CHROMATIC_TOKEN }}" ]; then
             echo "PRIMITIVE_UI_CHROMATIC_TOKEN is set"

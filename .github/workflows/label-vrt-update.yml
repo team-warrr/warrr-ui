@@ -19,7 +19,7 @@ jobs:
           chmod +x ./scripts/set-env.sh
           ./scripts/set-env.sh
 
-      - name: Node.js 설정
+      - name: node.js 설정
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -40,7 +40,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Playwright 브라우저 캐시
+      - name: playwright 브라우저 캐시
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
@@ -53,7 +53,7 @@ jobs:
           chmod +x ./scripts/install-dependencies.sh
           ./scripts/install-dependencies.sh
 
-      - name: Playwright 설치
+      - name: playwright 설치
         run: |
           chmod +x ./scripts/install-playwright.sh
           ./scripts/install-playwright.sh
