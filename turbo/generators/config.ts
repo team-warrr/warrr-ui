@@ -61,7 +61,6 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
   });
-<<<<<<< HEAD
 
   plop.setGenerator("컴포넌트 e2e 테스트 파일 생성기", {
     description: "컴포넌트의 e2e 테스트 파일을 생성합니다.",
@@ -86,6 +85,4 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
     ],
   });
-=======
->>>>>>> db8d5bc (feat/#12 Primitive UI codegen 세팅 (#42))
 }
