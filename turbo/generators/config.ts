@@ -70,12 +70,18 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         name: "componentName",
         message: "생성할 컴포넌트의 이름을 입력하세요 (예: Button): ",
       },
+      {
+        type: "list",
+        name: "packageName",
+        message: "컴포넌트를 생성할 패키지를 선택하세요: \n",
+        choices: ["primitive", "themed"]
+      },
     ],
     actions: [
       {
         type: "add",
         templateFile: "./templates/e2e/test.ts.hbs",
-        path: 'e2e/components/{{kebabCase componentName}}.test.ts',
+        path: 'e2e/components/{{packageName}}/{{kebabCase componentName}}.test.ts',
       },
     ],
   });
