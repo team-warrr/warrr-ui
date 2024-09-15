@@ -1,7 +1,7 @@
 import { Page, expect, test } from "@playwright/test";
 
-import { axeAccessibilityScan } from "../test-utils/a11y";
-import { visit } from "../test-utils/storybook";
+import { axeAccessibilityScan } from "../../test-utils/a11y";
+import { visit } from "../../test-utils/storybook";
 
 test.describe("{{componentName}} 컴포넌트", () => {
   test("시각적 회귀 테스트를 통과해야 합니다.", async ({ page }: { page: Page }) => {
