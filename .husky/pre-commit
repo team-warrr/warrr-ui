@@ -1,6 +1,6 @@
 pnpm lint
 
-pnpm jest --passWithNoTests
+pnpm test
 if [ $? -ne 0 ]; then
   echo "테스트 실패"
   exit 1
