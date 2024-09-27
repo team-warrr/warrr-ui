@@ -111,12 +111,16 @@ describe("Slot 컴포넌트", () => {
     });
 
     it("asChild prop이 true이면 Slot으로 래핑되어야 합니다", () => {
-      render(
+      const { container } = render(
         <Link asChild>
           <button>Button</button>
         </Link>
       );
-      expect(screen.getByRole("button")).toBeInTheDocument();
+
+      const button = screen.getByRole("button");
+
+      expect(button).toBeInTheDocument();
+      expect((container.firstChild as Element).tagName.toLowerCase()).not.toBe("a");
     });
 
     it("asChild prop이 true일 때 전달된 props가 자식 요소에 전달되어야 합니다", () => {
