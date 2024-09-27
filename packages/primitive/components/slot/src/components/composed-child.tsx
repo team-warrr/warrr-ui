@@ -14,18 +14,18 @@ import { mergeProps } from "../utils/merge-props";
 export interface ComposedChildProps {}
 
 export const ComposedChild = forwardRef<HTMLElement, PropsWithChildren<ComposedChildProps>>(
-  (props, forwardedRef) => {
-    const { children, ...slotProps } = props;
+  (props, ref) => {
+    const { children, ...restProps } = props;
 
     if (isValidElement(children)) {
       const childrenRef = getElementRef(children);
-      const composedRef = forwardedRef ? composeRefs(forwardedRef, childrenRef) : childrenRef;
-      const mergedProps = mergeProps(slotProps, children.props);
+      const composedRef = ref ? composeRefs(ref, childrenRef) : childrenRef;
+      const mergedProps = mergeProps(restProps, children.props);
 
-      const { ref: _, ...restProps } = mergedProps;
+      const { ref: _, ...mergedRestProps } = mergedProps;
 
       return cloneElement(children as ReactElement, {
-        ...restProps,
+        ...mergedRestProps,
         ref: composedRef,
       });
     }
