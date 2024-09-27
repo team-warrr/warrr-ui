@@ -11,9 +11,9 @@ import { composeRefs } from "../utils/composed-ref";
 import { getElementRef } from "../utils/get-element-ref";
 import { mergeProps } from "../utils/merge-props";
 
-export interface SlotCloneProps {}
+export interface ComposedChildProps {}
 
-const ComposedChild = forwardRef<HTMLElement, PropsWithChildren<SlotCloneProps>>(
+export const ComposedChild = forwardRef<HTMLElement, PropsWithChildren<ComposedChildProps>>(
   (props, forwardedRef) => {
     const { children, ...slotProps } = props;
 
@@ -35,5 +35,3 @@ const ComposedChild = forwardRef<HTMLElement, PropsWithChildren<SlotCloneProps>>
 );
 
 ComposedChild.displayName = "ComposedChild";
-
-export { ComposedChild };
