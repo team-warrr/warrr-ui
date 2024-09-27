@@ -123,7 +123,7 @@ describe("Slot 컴포넌트", () => {
       expect((container.firstChild as Element).tagName.toLowerCase()).not.toBe("a");
     });
 
-    it("asChild prop이 true일 때 전달된 props가 자식 요소에 전달되어야 합니다", () => {
+    it("asChild prop이 true일 때 전달된 props가 자식 요소에 병합되어야 합니다", () => {
       render(
         <Link asChild className="link" style={{ color: "red" }}>
           <button className="button">Button</button>
