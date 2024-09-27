@@ -42,6 +42,6 @@ const Slot = forwardRef<HTMLElement, SlotProps>((props, forwardedRef) => {
   );
 });
 
-Slot.displayName = "Slot";
+Slot.displayName = "WarrrUI.Slot";
 
 export { Slot };
