@@ -8,16 +8,19 @@ import { Slot, Slottable } from "../src";
 describe("Slot 컴포넌트", () => {
   it("정상적으로 렌더링되어야 합니다", () => {
     const { container } = render(<Slot>Hello</Slot>);
+
     expect(container).toBeInTheDocument();
   });
 
   it("ref가 전달되어야 합니다", () => {
     const ref = createRef<HTMLElement>();
+
     render(
       <Slot ref={ref}>
         <div>Hello</div>
       </Slot>
     );
+
     expect(ref.current).not.toBeNull();
   });
 
@@ -33,6 +36,7 @@ describe("Slot 컴포넌트", () => {
           </div>
         </Slot>
       );
+
       expect(screen.getByText("World")).toBeInTheDocument();
     });
   });
@@ -41,7 +45,6 @@ describe("Slot 컴포넌트", () => {
     const handleClick = jest.fn();
     const handleSlotClick = jest.fn();
 
-    // 각 테스트 전에 이벤트 핸들러 초기화
     beforeEach(() => {
       handleClick.mockReset();
       handleSlotClick.mockReset();
@@ -55,6 +58,7 @@ describe("Slot 컴포넌트", () => {
       );
 
       await userEvent.click(screen.getByText("Click me"));
+
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
@@ -66,6 +70,7 @@ describe("Slot 컴포넌트", () => {
       );
 
       await userEvent.click(screen.getByText("Click me"));
+
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
@@ -77,6 +82,7 @@ describe("Slot 컴포넌트", () => {
       );
 
       await userEvent.click(screen.getByText("Click me"));
+
       expect(handleSlotClick).toHaveBeenCalledTimes(1);
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -100,6 +106,7 @@ describe("Slot 컴포넌트", () => {
           <div>Child</div>
         </Slot>
       );
+
       expect(screen.getByText("Child")).toHaveStyle({ color: "red" });
     });
   });
@@ -107,6 +114,7 @@ describe("Slot 컴포넌트", () => {
   describe("Slot을 사용하는 Link 컴포넌트", () => {
     it("asChild prop이 없으면 a 태그로 렌더링되어야 합니다", () => {
       render(<Link href="#">Link</Link>);
+
       expect(screen.getByRole("link")).toHaveAttribute("href", "#");
     });
 
@@ -118,7 +126,6 @@ describe("Slot 컴포넌트", () => {
       );
 
       const button = screen.getByRole("button");
-
       expect(button).toBeInTheDocument();
       expect((container.firstChild as Element).tagName.toLowerCase()).not.toBe("a");
     });
@@ -129,6 +136,7 @@ describe("Slot 컴포넌트", () => {
           <button className="button">Button</button>
         </Link>
       );
+
       const button = screen.getByRole("button");
       expect(button).toHaveClass("link");
       expect(button).toHaveClass("button");
@@ -144,6 +152,7 @@ describe("Slot 컴포넌트", () => {
       );
 
       await userEvent.click(screen.getByRole("button"));
+
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
   });
