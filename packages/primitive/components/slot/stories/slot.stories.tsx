@@ -1,4 +1,10 @@
-import React from "react";
+import {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LiHTMLAttributes,
+  forwardRef,
+} from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -23,33 +29,31 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const Button = React.forwardRef<
+const Button = forwardRef<
   HTMLButtonElement,
-  React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }
+  ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }
 >(({ asChild, ...props }, ref) => {
   const Comp = asChild ? Slot : "button";
   return <Comp {...props} ref={ref} />;
 });
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { asChild?: boolean }
->(({ asChild, ...props }, ref) => {
-  const Comp = asChild ? Slot : "div";
-  return <Comp {...props} ref={ref} />;
-});
+const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement> & { asChild?: boolean }>(
+  ({ asChild, ...props }, ref) => {
+    const Comp = asChild ? Slot : "div";
+    return <Comp {...props} ref={ref} />;
+  }
+);
 
-const ListItem = React.forwardRef<
-  HTMLLIElement,
-  React.LiHTMLAttributes<HTMLLIElement> & { asChild?: boolean }
->(({ asChild, ...props }, ref) => {
-  const Comp = asChild ? Slot : "li";
-  return <Comp {...props} ref={ref} />;
-});
+const ListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement> & { asChild?: boolean }>(
+  ({ asChild, ...props }, ref) => {
+    const Comp = asChild ? Slot : "li";
+    return <Comp {...props} ref={ref} />;
+  }
+);
 
-const FormInput = React.forwardRef<
+const FormInput = forwardRef<
   HTMLInputElement,
-  React.InputHTMLAttributes<HTMLInputElement> & { asChild?: boolean }
+  InputHTMLAttributes<HTMLInputElement> & { asChild?: boolean }
 >(({ asChild, ...props }, ref) => {
   const Comp = asChild ? Slot : "input";
   return <Comp {...props} ref={ref} />;
