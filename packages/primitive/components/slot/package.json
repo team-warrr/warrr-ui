@@ -2,7 +2,7 @@
   "name": "@warrr-ui/primitive-slot",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "",
+  "description": "유연한 컴포넌트 조합을 가능하게 하는 Slot 컴포넌트",
   "keywords": [],
   "author": "ui.warrr@gmail.com",
   "homepage": "https://github.com/team-warrr/warrr-ui",
