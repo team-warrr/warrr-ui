@@ -108,8 +108,8 @@ const Button = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     asChild?: boolean;
-    iconLeft?: React.ReactNode;
-    iconRight?: React.ReactNode;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
   }
 >(({ asChild = false, iconLeft, iconRight, ...props }, forwardedRef) => {
   const Comp = asChild ? Slot : "button";
