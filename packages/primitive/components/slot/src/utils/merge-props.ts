@@ -31,7 +31,6 @@ export function mergeProps(parentProps: AnyProps, childProps: AnyProps): AnyProp
     } else if (propName === "style") {
       result.style = { ...parentValue, ...childValue };
     } else if (propName === "className") {
-      console.log(mergeClassNames(parentValue, childValue));
       result.className = mergeClassNames(parentValue, childValue);
     } else {
       result[propName] = childValue;
