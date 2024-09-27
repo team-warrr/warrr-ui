@@ -90,8 +90,7 @@ describe("Slot 컴포넌트", () => {
         </Slot>
       );
 
-      // 자식 요소가 Slot에서 전달된 props를 가지고 있는지 확인
-      const child = screen.getByTestId("child");
+      const child = screen.getByText("Child");
       expect(child).toHaveClass("parent");
     });
 
