@@ -6,17 +6,9 @@
 
 ```bash
 pnpm add @warrr-ui/primitive-slot
-```
-
-또는
-
-```bash
+# or
 yarn add @warrr-ui/primitive-slot
-```
-
-또는
-
-```bash
+# or
 npm install @warrr-ui/primitive-slot
 ```
 
