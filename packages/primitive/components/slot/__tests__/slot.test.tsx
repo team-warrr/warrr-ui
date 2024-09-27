@@ -1,6 +1,7 @@
 import { ComponentProps, createRef } from "react";
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 
 import { Slot, Slottable } from "../src";
 
@@ -46,33 +47,36 @@ describe("Slot 컴포넌트", () => {
       handleSlotClick.mockReset();
     });
 
-    it("Slot에 전달된 onClick 핸들러가 호출되어야 합니다", () => {
+    it("Slot에 전달된 onClick 핸들러가 호출되어야 합니다", async () => {
       render(
         <Slot onClick={handleClick}>
           <div>Click me</div>
         </Slot>
       );
-      fireEvent.click(screen.getByText("Click me"));
+
+      await userEvent.click(screen.getByText("Click me"));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
-    it("Slot의 자식 요소에 전달된 onClick 핸들러가 호출되어야 합니다", () => {
+    it("Slot의 자식 요소에 전달된 onClick 핸들러가 호출되어야 합니다", async () => {
       render(
         <Slot>
           <button onClick={handleClick}>Click me</button>
         </Slot>
       );
-      fireEvent.click(screen.getByText("Click me"));
+
+      await userEvent.click(screen.getByText("Click me"));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
-    it("Slot과 자식 요소 모두에 onClick 핸들러가 전달되었을 때, 두 핸들러 모두 호출되어야 합니다", () => {
+    it("Slot과 자식 요소 모두에 onClick 핸들러가 전달되었을 때, 두 핸들러 모두 호출되어야 합니다", async () => {
       render(
         <Slot onClick={handleSlotClick}>
           <button onClick={handleClick}>Click me</button>
         </Slot>
       );
-      fireEvent.click(screen.getByText("Click me"));
+
+      await userEvent.click(screen.getByText("Click me"));
       expect(handleSlotClick).toHaveBeenCalledTimes(1);
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -128,14 +132,15 @@ describe("Slot 컴포넌트", () => {
       expect(button).toHaveStyle({ color: "red" });
     });
 
-    it("asChild prop이 true일 때 이벤트 핸들러가 자식 요소에 전달되어야 합니다", () => {
+    it("asChild prop이 true일 때 이벤트 핸들러가 자식 요소에 전달되어야 합니다", async () => {
       const handleClick = jest.fn();
       render(
         <Link asChild onClick={handleClick}>
           <button>Button</button>
         </Link>
       );
-      fireEvent.click(screen.getByRole("button"));
+
+      await userEvent.click(screen.getByRole("button"));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
   });
