@@ -10,7 +10,7 @@ interface TextFieldContextProps {
 
 const TextFieldContext = createContext<TextFieldContextProps | null>(null);
 
-interface TextFieldProps {
+export interface TextFieldProps {
   children: ReactNode;
   isInvalid?: boolean;
 }
@@ -73,7 +73,7 @@ const RightContent = (props: ComponentProps<"span">) => {
   return <span {...restProps}>{children}</span>;
 };
 
-export default Object.assign(TextFieldRoot, {
+const TextField = Object.assign(TextFieldRoot, {
   Label,
   Description,
   Input,
@@ -81,6 +81,8 @@ export default Object.assign(TextFieldRoot, {
   LeftContent,
   RightContent,
 });
+
+export default TextField;
 
 TextFieldRoot.displayName = "WarrrUI.TextFieldRoot";
 Label.displayName = "WarrrUI.TextFieldLabel";
