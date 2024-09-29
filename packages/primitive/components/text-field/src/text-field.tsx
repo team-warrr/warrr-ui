@@ -22,7 +22,9 @@ const TextFieldRoot = forwardRef<HTMLDivElement, TextFieldProps>(
 
     return (
       <TextFieldContext.Provider value={contextValue}>
-        <div ref={ref}>{children}</div>
+        <div ref={ref} aria-invalid={isInvalid}>
+          {children}
+        </div>
       </TextFieldContext.Provider>
     );
   }
@@ -37,7 +39,11 @@ const Label = (props: ComponentProps<"label">) => {
 const Description = (props: ComponentProps<"div">) => {
   const { children, ...restProps } = props;
 
-  return <div {...restProps}>{children}</div>;
+  return (
+    <div role="note" {...restProps}>
+      {children}
+    </div>
+  );
 };
 
 const Input = forwardRef<HTMLInputElement, ComponentProps<"input">>((props, ref) => {
@@ -58,7 +64,11 @@ const ErrorMessage = (props: ComponentProps<"div">) => {
   const { children, ...restProps } = props;
   const { isInvalid } = useSafeContext(TextFieldContext, "TextFieldContext");
 
-  return isInvalid ? <div {...restProps}>{children}</div> : null;
+  return isInvalid ? (
+    <div role="alert" {...restProps}>
+      {children}
+    </div>
+  ) : null;
 };
 
 const LeftContent = (props: ComponentProps<"span">) => {
