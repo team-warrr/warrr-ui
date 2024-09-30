@@ -12,18 +12,39 @@ export type DividerProps = DivProps &
   };
 
 const Divider = forwardRef<HTMLDivElement | HTMLHRElement, DividerProps>((props, ref) => {
-  const { orientation: orientationProp = DEFAULT_ORIENTATION, ...restProps } = props;
+  const {
+    orientation: orientationProp = DEFAULT_ORIENTATION,
+    style: styleProp,
+    ...restProps
+  } = props;
   const isVertical = orientationProp === "vertical";
 
   const Component = isVertical ? "div" : "hr";
   const orientation = isVertical ? "vertical" : DEFAULT_ORIENTATION;
+  const style = isVertical
+    ? styleProp
+    : {
+        marginInline: 0,
+        marginBlock: 0,
+        border: "none",
+        height: 0,
+        color: "transparent",
+        backgroundColor: "transparent",
+        ...styleProp,
+      };
 
   const typedRef = ref as ForwardedRef<
     typeof orientation extends "vertical" ? HTMLDivElement : HTMLHRElement
   >;
 
   return (
-    <Component role="separator" aria-orientation={orientation} ref={typedRef} {...restProps} />
+    <Component
+      role="separator"
+      aria-orientation={orientation}
+      ref={typedRef}
+      style={style}
+      {...restProps}
+    />
   );
 });
 
