@@ -163,6 +163,12 @@ importers:
       '@storybook/react':
         specifier: ^8.1.11
         version: 8.2.9(react-dom@18.3.1)(react@18.3.1)(storybook@8.2.9)(typescript@5.5.4)
+      '@testing-library/user-event':
+        specifier: ^14.5.2
+        version: 14.5.2(@testing-library/dom@10.4.0)
+      '@types/jest':
+        specifier: ^29.5.12
+        version: 29.5.12
       chromatic:
         specifier: ^11.5.4
         version: 11.7.1
@@ -171,6 +177,15 @@ importers:
         version: 8.2.9
 
   packages/primitive/components/divider:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+
+  packages/primitive/components/text-field:
     dependencies:
       react:
         specifier: ^18.3.1
@@ -3575,6 +3590,15 @@ packages:
       '@testing-library/dom': '>=7.21.4'
     dependencies:
       '@testing-library/dom': 10.1.0
+    dev: true
+
+  /@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0):
+    resolution: {integrity: sha512-YAh82Wh4TIrxYLmfGcixwD18oIjyC1pFQC2Y01F2lzV2HTMiYrI0nze0FD0ocB//CKS/7jIUgae+adPqxK5yCQ==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      '@testing-library/dom': '>=7.21.4'
+    dependencies:
+      '@testing-library/dom': 10.4.0
     dev: true
 
   /@tootallnate/once@2.0.0:
