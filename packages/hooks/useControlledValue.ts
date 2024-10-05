@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const useControlledValue = <
   T,
@@ -8,25 +8,18 @@ const useControlledValue = <
   defaultValue?: T,
   onChange?: (e: ChangeEvent<E>) => void
 ) => {
-  const [value, setValue] = useState<T | string>(valueProp ?? defaultValue ?? "");
-
   const isControlled = valueProp !== undefined;
+  const [internalValue, setInternalValue] = useState(defaultValue ?? "");
 
-  useEffect(() => {
-    if (isControlled) {
-      setValue(valueProp);
-    }
-  }, [isControlled, valueProp]);
+  const value = isControlled ? valueProp : internalValue;
 
   const handleChange = (e: ChangeEvent<E>) => {
-    const newValue = e.target.value;
-
     if (isControlled) {
       onChange?.(e);
       return;
     }
 
-    setValue(newValue);
+    setInternalValue(e.target.value);
   };
 
   return { value, onChange: handleChange };
