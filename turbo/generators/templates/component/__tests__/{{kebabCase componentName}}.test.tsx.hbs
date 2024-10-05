@@ -18,5 +18,6 @@ describe("{{pascalCase componentName}}", () => {
     render(<{{pascalCase componentName}} ref={ref} />);
 
     expect(ref.current).not.toBeNull();
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 })
