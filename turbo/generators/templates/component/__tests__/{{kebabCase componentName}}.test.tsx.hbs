@@ -12,7 +12,7 @@ describe("{{pascalCase componentName}}", () => {
     expect(getByRole("none")).toBeInTheDocument();
   });
 
-  it("ref가 전달되어야 합니다.", () => {
+  it("ref가 정상적으로 전달되어야 합니다.", () => {
     const ref = createRef<HTMLDivElement>();
 
     render(<{{pascalCase componentName}} ref={ref} />);
