@@ -135,23 +135,23 @@ export const WithErrorMessage = () => {
   );
 };
 
-export const WithLeftContent: Story = {
-  args: {
-    children: (
-      <TextField>
-        <TextField.RightContent>오른쪽 요소</TextField.RightContent>
-        <TextField.Input />
-      </TextField>
-    ),
-  },
-};
-
 export const WithRightContent: Story = {
   args: {
     children: (
       <TextField>
         <TextField.Input />
+        <TextField.RightContent>오른쪽 요소</TextField.RightContent>
+      </TextField>
+    ),
+  },
+};
+
+export const WithLeftContent: Story = {
+  args: {
+    children: (
+      <TextField>
         <TextField.LeftContent>왼쪽 요소</TextField.LeftContent>
+        <TextField.Input />
       </TextField>
     ),
   },
