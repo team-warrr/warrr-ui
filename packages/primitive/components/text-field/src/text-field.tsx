@@ -22,9 +22,7 @@ const TextFieldRoot = forwardRef<HTMLDivElement, TextFieldProps>(
 
     return (
       <TextFieldContext.Provider value={contextValue}>
-        <div ref={ref} aria-invalid={isInvalid}>
-          {children}
-        </div>
+        <div ref={ref}>{children}</div>
       </TextFieldContext.Provider>
     );
   }
@@ -55,9 +53,19 @@ const Input = forwardRef<HTMLInputElement, ComponentProps<"input">>((props, ref)
     ...restProps
   } = props;
 
+  const { isInvalid } = useSafeContext(TextFieldContext, "TextFieldContext");
   const { value, onChange } = useControlledValue(valueProp, defaultValue, onChangeProp);
 
-  return <input ref={ref} value={value} type={type} onChange={onChange} {...restProps} />;
+  return (
+    <input
+      ref={ref}
+      value={value}
+      type={type}
+      onChange={onChange}
+      aria-invalid={isInvalid}
+      {...restProps}
+    />
+  );
 });
 
 const ErrorMessage = (props: ComponentProps<"div">) => {
