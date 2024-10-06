@@ -6,23 +6,23 @@ const useControlledValue = <
 >(
   valueProp?: T,
   defaultValue?: T,
-  onChange?: (e: ChangeEvent<E>) => void
+  onChangeProp?: (e: ChangeEvent<E>) => void
 ) => {
   const isControlled = valueProp !== undefined;
-  const [internalValue, setInternalValue] = useState(defaultValue ?? "");
+  const [unControlledValue, setUnControlledValue] = useState(defaultValue ?? "");
 
-  const value = isControlled ? valueProp : internalValue;
-
-  const handleChange = (e: ChangeEvent<E>) => {
-    if (isControlled) {
-      onChange?.(e);
-      return;
-    }
-
-    setInternalValue(e.target.value);
+  const handleChangeControlledValue = (e: ChangeEvent<E>) => {
+    onChangeProp?.(e);
   };
 
-  return { value, onChange: handleChange };
+  const handleChangeUnControlledValue = (e: ChangeEvent<E>) => {
+    setUnControlledValue(e.target.value);
+  };
+
+  const value = isControlled ? valueProp : unControlledValue;
+  const onChange = isControlled ? handleChangeControlledValue : handleChangeUnControlledValue;
+
+  return { value, onChange };
 };
 
 export default useControlledValue;
