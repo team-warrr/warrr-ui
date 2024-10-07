@@ -2,8 +2,15 @@
   "name": "@warrr-ui/primitive-loading",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "",
-  "keywords": [],
+  "description": "Loading 컴포넌트는 로딩 상태인 컴포넌트임을 명시적으로 나타내기 위해 사용합니다.",
+  "keywords": [
+    "warrr-ui",
+    "loading",
+    "로딩",
+    "component",
+    "react ui",
+    "headless"
+  ],
   "author": "ui.warrr@gmail.com",
   "homepage": "https://github.com/team-warrr/warrr-ui",
   "sideEffects": false,
