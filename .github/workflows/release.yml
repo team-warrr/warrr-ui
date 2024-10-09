@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
+
+jobs:
+  version:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: pnpm 설치
+        run: npm i pnpm@latest -g
+
+      - name: npmrc 파일 생성
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: pnpm 설정
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: 의존성 설치
+        run: pnpm install
+
+      - name: 버전 업데이트 및 npm 배포
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset version
+          publish: pnpm changeset publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
