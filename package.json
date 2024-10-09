@@ -13,6 +13,7 @@
     "test": "jest --verbose --config ./jest.config.ts"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "@axe-core/playwright": "^4.9.1",
     "@playwright/test": "^1.46.0",
     "@testing-library/dom": "^10.4.0",
