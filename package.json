@@ -10,7 +10,8 @@
     "prepare": "husky",
     "e2e": "playwright test",
     "e2e:update": "playwright test --update-snapshots",
-    "test": "jest --verbose --config ./jest.config.ts"
+    "test": "jest --verbose --config ./jest.config.ts",
+    "publish-packages": "turbo run lint && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
