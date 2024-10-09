@@ -26,7 +26,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Horizontal: Story = {};
+export const Horizontal: Story = {
+  args: {
+    style: {
+      width: "100%",
+      height: "1px",
+      backgroundColor: "black",
+    },
+  },
+};
 
 export const Vertical: Story = {
   args: {
