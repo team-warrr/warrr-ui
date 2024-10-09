@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -f ".github/environments/versions.env" ]; then
-  export $(grep -v '^#' .github/environments/versions.env | xargs)
+  export "$(grep -v '^#' .github/environments/versions.env | xargs)"
   echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_ENV
   echo "PNPM_VERSION=$PNPM_VERSION" >> $GITHUB_ENV
 else

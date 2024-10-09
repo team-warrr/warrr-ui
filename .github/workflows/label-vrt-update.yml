@@ -72,7 +72,7 @@ jobs:
 
       - name: 스토리북 프로세스 종료
         if: always()
-        run: kill $(cat .storybook-pid)
+        run: kill "$(cat .storybook-pid)"
 
       - name: 변경된 스냅샷 커밋 및 푸시
         run: |
