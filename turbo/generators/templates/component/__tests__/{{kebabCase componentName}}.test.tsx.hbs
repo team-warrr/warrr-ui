@@ -7,16 +7,17 @@ import { {{pascalCase componentName}} } from "../src";
 
 describe("{{pascalCase componentName}}", () => {
   it("올바르게 렌더링되어야 합니다.", () => {
-    const { container } = render(<{{pascalCase componentName}} />);
+    const { getByRole } = render(<{{pascalCase componentName}} />);
 
-    expect(container).toBeInTheDocument();
+    expect(getByRole("none")).toBeInTheDocument();
   });
 
-  it("ref가 전달되어야 합니다.", () => {
+  it("ref가 정상적으로 전달되어야 합니다.", () => {
     const ref = createRef<HTMLDivElement>();
 
     render(<{{pascalCase componentName}} ref={ref} />);
 
     expect(ref.current).not.toBeNull();
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 })
