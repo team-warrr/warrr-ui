@@ -21,7 +21,7 @@ jobs:
       - name: Node.js 설정
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 20
 
       - name: pnpm 설치
         run: npm i pnpm@latest -g
