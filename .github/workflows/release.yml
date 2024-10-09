@@ -1,4 +1,4 @@
-name: Release
+name: 버전 업데이트 및 자동 배포
 
 on:
   push:
