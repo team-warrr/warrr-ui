@@ -87,12 +87,20 @@ jobs:
           chmod +x ./scripts/install-dependencies.sh
           ./scripts/install-dependencies.sh
 
-      - name: unit 테스트
+      - name: 유닛 테스트
         run: pnpm run test
 
-      - name: unit 테스트 실패
+      - name: 유닛 테스트 실패
         if: failure()
-        run: echo "unit test 실패"
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## 유닛 테스트 실패 \n\n 유닛 테스트가 실패하였습니다. 코드를 점검해주세요!'
+            })
 
   build:
     runs-on: ubuntu-latest
@@ -140,4 +148,12 @@ jobs:
 
       - name: 빌드 실패
         if: failure()
-        run: echo "빌드 실패"
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## 빌드 실패 \n\n 빌드가 실패하였습니다. 코드를 점검해주세요!'
+            })
