@@ -1,0 +1,55 @@
+{
+  "name": "@warrr-ui/primitive-loading",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Loading 컴포넌트는 로딩 상태인 컴포넌트임을 명시적으로 나타내기 위해 사용합니다.",
+  "keywords": [
+    "warrr-ui",
+    "loading",
+    "로딩",
+    "component",
+    "react ui",
+    "headless"
+  ],
+  "author": "ui.warrr@gmail.com",
+  "homepage": "https://github.com/team-warrr/warrr-ui",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-warrr/warrr-ui.git",
+    "directory": "packages/primitive/loading"
+  },
+  "bugs": {
+    "url": "https://github.com/team-warrr/warrr-ui/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup ./src/index.ts",
+    "dev": "pnpm build --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
