@@ -7,9 +7,15 @@ import { Slot, Slottable } from "../src";
 
 describe("Slot 컴포넌트", () => {
   it("정상적으로 렌더링되어야 합니다", () => {
-    const { container } = render(<Slot>Hello</Slot>);
+    const { getByTestId } = render(
+      <Link asChild data-testid="slot">
+        <a href="www.naver.com">Naver</a>
+      </Link>
+    );
 
-    expect(container).toBeInTheDocument();
+    const slot = getByTestId("slot");
+
+    expect(slot).toBeInTheDocument();
   });
 
   it("ref가 전달되어야 합니다", () => {
@@ -22,6 +28,7 @@ describe("Slot 컴포넌트", () => {
     );
 
     expect(ref.current).not.toBeNull();
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 
   describe("Slottable 컴포넌트", () => {
