@@ -71,6 +71,12 @@
       "rules": {
         "import/default": "off"
       }
+    },
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "react/display-name": "off"
+      }
     }
   ]
 }
