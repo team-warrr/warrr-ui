@@ -7,10 +7,20 @@ import { render } from "@testing-library/react";
 import { Divider } from "../src";
 
 describe("Divider", () => {
-  it("올바르게 렌더링되어야 합니다.", () => {
+  it("orientation이 default(horizontal)일 때 컴포넌트가 올바르게 렌더링되어야 합니다.", () => {
     const { container } = render(<Divider />);
 
-    expect(container).toBeInTheDocument();
+    const divider = container.querySelector("hr");
+
+    expect(divider).toBeInTheDocument();
+  });
+
+  it("orientation이 vertical일 때 컴포넌트가 올바르게 렌더링되어야 합니다.", () => {
+    const { container } = render(<Divider orientation="vertical" />);
+
+    const divider = container.querySelector("div");
+
+    expect(divider).toBeInTheDocument();
   });
 
   it("ref가 전달되어야 합니다.", () => {
