@@ -23,12 +23,24 @@ describe("Divider", () => {
     expect(divider).toBeInTheDocument();
   });
 
-  it("ref가 전달되어야 합니다.", () => {
-    const ref = createRef<HTMLDivElement>();
+  it("orientation이 default(horizontal)일 때 ref가 전달되어야 합니다.", () => {
+    const ref = createRef<HTMLHRElement>();
 
     render(<Divider ref={ref} />);
 
     expect(ref.current).not.toBeNull();
+
+    expect(ref.current).toBeInstanceOf(HTMLHRElement);
+  });
+
+  it("orientation이 vertical일 때 ref가 전달되어야 합니다.", () => {
+    const ref = createRef<HTMLDivElement>();
+
+    render(<Divider orientation="vertical" ref={ref} />);
+
+    expect(ref.current).not.toBeNull();
+
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 
   it("orientation이 default(horizontal)일 때 hr 태그를 렌더링해야 합니다.", () => {
